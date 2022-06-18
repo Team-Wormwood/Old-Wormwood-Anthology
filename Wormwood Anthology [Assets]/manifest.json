@@ -1,0 +1,22 @@
+{
+    "format_version": 2,
+    "header": {
+        "name": "pack.name",
+        "description": "pack.description",
+        "uuid": "609e90d2-f2e2-4220-b15c-ed2c03ebc3b6",
+        "version":[ 1, 0, 0 ],
+        "min_engine_version": [ 1, 13, 0 ]
+    },
+    "modules": [
+        {
+            "type": "resources",
+            "uuid": "124c460c-1393-4e54-a7ee-e5ede3e9d1a8",
+            "version":[ 1, 0, 0 ]
+        }
+    ],
+    "metadata": {
+        "authors": [
+            "yanasakana"
+        ]
+    }
+}
