@@ -4,62 +4,55 @@
 		"description": {
 			"identifier": "minecraft:player",
 			"materials": {
+				// Vanilla //
 				"default": "entity_alphatest",
-				"xorkent": "entity_emissive_alpha",
 				"cape": "entity_alphatest",
 				"animated": "player_animated"
 			},
+			"geometry": {
+				// Advancements Models //
+				"advancements_ui": "geometry.advancements_ui",
+				// Attachable Weapons Models //
+				"chinese_assault_rifle": "geometry.chinese_assault_rifle",
+				"hunting_revolver": "geometry.hunting_revolver",
+				// Vanilla Models //
+				"default": "geometry.humanoid.custom",
+				"cape": "geometry.cape"
+			},
 			"textures": {
-				"default": "textures/entity/steve",
-				"cape": "textures/entity/cape_invisible",
-				// Advancements
+				// Advancements Textures //
 				"advancement.feet_wet": "textures/ui/advancements/feet_wet",
 				"advancement.adventuring_journey": "textures/ui/advancements/adventuring_journey",
-				// Developers
-				"sumiyumi": "textures/entity/yumi",
-				"luth": "textures/entity/luth",
-				"xorkent_glow0": "textures/entity/xorkent/glow0",
-				"xorkent_glow1": "textures/entity/xorkent/glow1",
-				"xorkent_glow2": "textures/entity/xorkent/glow2",
-				"xorkent_glow3": "textures/entity/xorkent/glow3",
-				"xorkent_glow4": "textures/entity/xorkent/glow4",
-				"xorkent_glow5": "textures/entity/xorkent/glow5",
-				"xorkent_glow6": "textures/entity/xorkent/glow6",
-				"xorkent_glow7": "textures/entity/xorkent/glow7",
-				"xorkent_glow8": "textures/entity/xorkent/glow8",
-				"xorkent_glow9": "textures/entity/xorkent/glow9",
-				"xorkent_glow10": "textures/entity/xorkent/glow10",
-				"xorkent_glow11": "textures/entity/xorkent/glow11",
-				"xorkent_glow12": "textures/entity/xorkent/glow12",
-				"xorkent_glow13": "textures/entity/xorkent/glow13",
-				"xorkent_glow14": "textures/entity/xorkent/glow14",
-				"xorkent_glow15": "textures/entity/xorkent/glow15",
-				"xorkent_glow16": "textures/entity/xorkent/glow16"
+				// Attachable Weapons Textures //
+				"chinese_assault_rifle": "textures/attachables/chinese_assault_rifle",
+				// Vanilla Textures //
+				"default": "textures/entity/steve",
+				"cape": "textures/entity/cape_invisible"
 			},
-			"geometry": {
-				"default": "geometry.humanoid.custom",
-				"cape": "geometry.cape",
-				// Advancements
-				"advancements_ui": "geometry.advancements_ui",
-				// Developers
-				"sumiyumi": "geometry.yumi",
-				"luth": "geometry.luth",
-				"xorkent": "geometry.xorkent"
+			"sound_effects": {
+				"chinese_assault_rifle.fire": "weapon.chinese_assault_rifle.fire"
 			},
 			"scripts": {
-				"scale": "0.9375",
 				"initialize": [
-					// Advancements
+					// Advancement Variables //
 					"variable.should_render_in_hud = 0.0;",
 					"variable.advancements_fade_motion = 0.0;",
-					// Defaults
+					// Vanilla Variables //
 					"variable.is_holding_right = 0.0;",
 					"variable.is_blinking = 0.0;",
 					"variable.last_blink_time = 0.0;",
 					"variable.hand_bob = 0.0;"
 				],
 				"pre_animation": [
-					// Defaults
+					// Custom-Made Variables // 
+					"variable.is_equipped_hunting_revolver = query.is_on_screen ? query.is_item_name_any('slot.weapon.mainhand', 0, 'wormwood:hunting_revolver');",
+					"variable.is_equipped_chinese_assault_rifle = query.is_on_screen ? query.is_item_name_any('slot.weapon.mainhand', 'wormwood:chinese_assault_rifle');",
+					"variable.is_equipped_any_attachable_weapon = query.is_on_screen ? query.is_item_name_any('slot.weapon.mainhand', 0, 'wormwood:hunting_revolver', 'wormwood:chinese_assault_rifle');",
+					//
+					"variable.should_render_in_hud = !query.is_riding && !query.is_gliding && query.is_alive && query.is_in_ui && !variable.map_face_icon;",
+					"variable.fixed_arm_positions = query.is_on_screen ? variable.is_equipped_any_attachable_weapon;",
+					"temp.distance = ( query.mark_variant > 0 ) ? 0 : 500; temp.fade_speed = 0.33; temp.fade_amount = 0.5; temp.delta_time = variable.is_first_person ? query.delta_time : query.last_frame_time; variable.advancements_fade_motion = variable.advancements_fade_motion + ( temp.distance - variable.advancements_fade_motion ) * ( 1 - math.pow( temp.fade_speed , temp.delta_time / temp.fade_amount ) );",
+					// Vanilla Variables // 
 					"variable.helmet_layer_visible = 1.0;",
 					"variable.leg_layer_visible = 1.0;",
 					"variable.boot_layer_visible = 1.0;",
@@ -69,20 +62,31 @@
 					"variable.first_person_rotation_factor = math.sin((1 - variable.attack_time) * 180.0);",
 					"variable.hand_bob = query.life_time < 0.01 ? 0.0 : variable.hand_bob + ((query.is_on_ground && query.is_alive ? math.clamp(math.sqrt(math.pow(query.position_delta(0), 2.0) + math.pow(query.position_delta(2), 2.0)), 0.0, 0.1) : 0.0) - variable.hand_bob) * 0.02;",
 					"variable.map_angle = math.clamp(1 - variable.player_x_rotation / 45.1, 0.0, 1.0);",
-					"variable.item_use_normalized = query.main_hand_item_use_duration / query.main_hand_item_max_duration;",
-					// Advancements
-					"variable.should_render_in_hud = !query.is_riding && !query.is_gliding && query.is_alive && query.is_in_ui && !variable.map_face_icon;",
-					"temp.distance = ( query.mark_variant > 0 ) ? 0 : 500; temp.fade_speed = 0.33; temp.fade_amount = 0.5; temp.delta_time = variable.is_first_person ? query.delta_time : query.last_frame_time; variable.advancements_fade_motion = variable.advancements_fade_motion + ( temp.distance - variable.advancements_fade_motion ) * ( 1 - math.pow( temp.fade_speed , temp.delta_time / temp.fade_amount ) );"
+					"variable.item_use_normalized = query.main_hand_item_use_duration / query.main_hand_item_max_duration;"
 				],
 				"animate": [
-					"root",
-					"advancements_offsets"
-				]
+					"advancements_offsets",
+					"modified_root",
+					{
+						"attachable_root": "!variable.is_paperdoll && !variable.map_face_icon"
+					}
+				],
+				"scale": "0.9375"
 			},
 			"animations": {
-				// Advancements
+				// Advancement Animations //
 				"advancements_offsets": "animation.player.advancements_offsets",
-				// Defaults
+				// Weapons Animations //
+				"attachables.chinese_assault_rifle.setup": "controller.animation.wormwood.player.attachables.chinese_assault_rifle.setup",
+				"attachables.chinese_assault_rifle.controller": "controller.animation.wormwood.player.attachables.chinese_assault_rifle.controller",
+				"attachables.chinese_assault_rifle.wield.first_person": "animation.wormwood.player.attachables.chinese_assault_rifle.wield.first_person",
+				"attachables.chinese_assault_rifle.wield.third_person": "animation.wormwood.player.attachables.chinese_assault_rifle.wield.third_person",
+				"attachables.chinese_assault_rifle.shoot": "animation.wormwood.player.attachables.chinese_assault_rifle.shoot",
+				"attachables.chinese_assault_rifle.shoot.particles": "animation.wormwood.player.attachables.chinese_assault_rifle.shoot.particles",
+				// Modified Animations //
+				"modified_root": "controller.animation.player.modified_root",
+				"attachable_root": "controller.animation.player.attachable_root",
+				// Vanilla Animations //
 				"root": "controller.animation.player.root",
 				"base_controller": "controller.animation.player.base",
 				"hudplayer": "controller.animation.player.hudplayer",
@@ -116,6 +120,7 @@
 				"first_person_base_pose": "animation.player.first_person.base_pose",
 				"first_person_empty_hand": "animation.player.first_person.empty_hand",
 				"first_person_swap_item": "animation.player.first_person.swap_item",
+				"first_person_shield_block": "animation.player.first_person.shield_block",
 				"first_person_attack_controller": "controller.animation.player.first_person_attack",
 				"first_person_attack_rotation": "animation.player.first_person.attack_rotation",
 				"first_person_vr_attack_rotation": "animation.player.first_person.vr_attack_rotation",
@@ -135,14 +140,15 @@
 				"blink": "controller.animation.persona.blink"
 			},
 			"render_controllers": [
-				// Advancements
+				// Custom-Made Render Controllers //
 				{
-					"controller.render.player.advancements_ui": "variable.should_render_in_hud && variable.advancements_fade_motion < 649.0f"
+					"controller.render.player.chinese_assault_rifle": "variable.is_equipped_chinese_assault_rifle"
 				},
-				// Defaults
+				// Modified Render Controllers //
 				{
 					"controller.render.player.first_person": "variable.is_first_person"
 				},
+				// Vanilla Render Controllers //
 				{
 					"controller.render.player.third_person": "!variable.is_first_person && !variable.map_face_icon"
 				},

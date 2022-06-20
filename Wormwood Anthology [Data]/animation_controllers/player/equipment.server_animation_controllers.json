@@ -1,0 +1,94 @@
+{
+	"format_version": "1.10.0",
+	"animation_controllers": {
+		// The Fury of Wormwood //
+		"controller.animation.wormwood.player.ranged_weapons": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [
+						"controller.chinese_assault_rifle"
+					]
+				}
+			}
+		},
+		"controller.animation.wormwood.player.chinese_assault_rifle": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"firing.chinese_assault_rifle": "query.is_using_item && query.is_item_name_any('slot.weapon.mainhand', 0, 'wormwood:chinese_assault_rifle')"
+						}
+					]
+				},
+				"buffer.chinese_assault_rifle": {
+					"animations": [
+						"chinese_assault_rifle.cooldown"
+					],
+					"transitions": [
+						{
+							"default": "query.all_animations_finished"
+						}
+					]
+				},
+				"firing.chinese_assault_rifle": {
+					"on_entry": [
+						"@s modified_player:projectile_shot.chinese_assault_rifle"
+					],
+					"transitions": [
+						{
+							"buffer.chinese_assault_rifle": "query.all_animations_finished"
+						}
+					]
+				}
+			}
+		},
+		// World Beyond //
+		"controller.animation.solar_medallion": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"effect": "query.get_equipped_item_name('off_hand') == 'solar_medallion' && query.time_of_day > 0.25 && query.time_of_day < 0.75"
+						}
+					]
+				},
+				"effect": {
+					"transitions": [
+						{
+							"default": "1.0"
+						}
+					],
+					"on_entry": [
+						"/effect @s strength 3 8 true",
+						"/effect @s resistance 3 8 true"
+					]
+				}
+			}
+		},
+		"controller.animation.item_equip_sounds": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"adventure_hats": "query.is_item_name_any('slot.armor.head', 0, 'worldbeyond:adventure_hat') || query.is_item_name_any('slot.armor.head', 0, 'worldbeyond:colourful_adventure_hat')"
+						}
+					]
+				},
+				"adventure_hats": {
+					"on_entry": [
+						"/playsound armor.equip_leather"
+					],
+					"transitions": [
+						{
+							"default": "!query.is_item_name_any('slot.armor.head', 0, 'worldbeyond:adventure_hat') || !query.is_item_name_any('slot.armor.head', 0, 'worldbeyond:colourful_adventure_hat')"
+						}
+					]
+				}
+			}
+		}
+	}
+}

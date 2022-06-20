@@ -1,17 +1,13 @@
-##Code all done by @yanasakanadev
-##2022/1
-##やなぎ#2957
+## Team Wormwood - 2022
 
 ## Packs
-pack.description=A testing grounds for experimental add-on creation features. Bound to include tonnes of random content
-pack.name=§o§aPseudo§bScience!§r
+pack.description=A library of assets and code dependencies for Team Wormwood add-ons. To avoid breakages, do not use standalone.
+pack.name=§aWormwood Anthology§r
 
 ## Blocks
-tile.yanasakana:bedwars_bomb.name=Bomb
 
 ## Items
 
 ## Entities
-entity.yanasakana:bedwars_bomb.name=§cBedwars Bomb§r
 
 ## Interactions

@@ -3,20 +3,42 @@
     "header": {
         "name": "pack.name",
         "description": "pack.description",
-        "uuid": "609e90d2-f2e2-4220-b15c-ed2c03ebc3b6",
-        "version":[ 1, 0, 0 ],
-        "min_engine_version": [ 1, 13, 0 ]
+        "uuid": "e5793b0d-4808-496d-8d6b-8b073079fe9b",
+        "version": [
+            1,
+            0,
+            0
+        ],
+        "min_engine_version": [
+            1,
+            19,
+            0
+        ]
     },
+    "dependencies": [
+        {
+            "uuid": "c97464cd-c741-4951-84e9-d52525d9b698",
+            "version": [
+                1,
+                0,
+                0
+            ]
+        }
+    ],
     "modules": [
         {
             "type": "resources",
-            "uuid": "124c460c-1393-4e54-a7ee-e5ede3e9d1a8",
-            "version":[ 1, 0, 0 ]
+            "uuid": "3005a125-5c9e-4ecf-bf66-781af0f2fec1",
+            "version": [
+                1,
+                0,
+                0
+            ]
         }
     ],
     "metadata": {
         "authors": [
-            "yanasakana"
+            "Sumi-Yumi"
         ]
     }
 }

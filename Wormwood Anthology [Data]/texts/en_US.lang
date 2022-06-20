@@ -1,7 +1,5 @@
-##Code all done by @yanasakanadev
-##2022/1
-##やなぎ#2957
+## Team Wormwood - 2022
 
 ## Packs
 pack.description=A library of assets and code dependencies for Team Wormwood add-ons. To avoid breakages, do not use standalone.
-pack.name=§o§aWormwood Anthology§r
+pack.name=§aWormwood Anthology§r

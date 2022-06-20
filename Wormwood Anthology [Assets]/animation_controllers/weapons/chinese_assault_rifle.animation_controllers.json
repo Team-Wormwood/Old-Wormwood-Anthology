@@ -1,0 +1,80 @@
+{
+    "format_version": "1.10.0",
+    "animation_controllers": {
+        "controller.animation.wormwood.player.attachables.chinese_assault_rifle.setup": {
+            "initial_state": "default",
+            "states": {
+                "default": {
+                    "animations": [
+                        {
+                            "attachables.chinese_assault_rifle.wield.first_person": "variable.is_equipped_chinese_assault_rifle && variable.is_first_person"
+                        },
+                        {
+                            "attachables.chinese_assault_rifle.wield.third_person": "variable.is_equipped_chinese_assault_rifle && !variable.is_first_person"
+                        },
+                        {
+                            "attachables.chinese_assault_rifle.controller": "variable.is_equipped_chinese_assault_rifle"
+                        }
+                    ]
+                }
+            }
+        },
+        "controller.animation.wormwood.player.attachables.chinese_assault_rifle.controller": {
+            "initial_state": "not_holding",
+            "states": {
+                "pre_not_holding": {
+                    "transitions": [
+                        {
+                            "not_holding": "true"
+                        }
+                    ]
+                },
+                "not_holding": {
+                    "transitions": [
+                        {
+                            "wielding": "variable.is_equipped_chinese_assault_rifle"
+                        }
+                    ]
+                },
+                "wielding": {
+                    "transitions": [
+                        {
+                            "pre_not_holding": "!variable.is_equipped_chinese_assault_rifle"
+                        },
+                        {
+                            "shooting": "query.is_using_item"
+                        }
+                    ],
+                    "blend_transition": 0.125
+                },
+                "shooting": {
+                    "on_entry": [
+                        "variable.time = 0;"
+                    ],
+                    "variables": {
+                        "time": {
+                            "input": "variable.time + query.delta_time"
+                        }
+                    },
+                    "transitions": [
+                        {
+                            "pre_not_holding": "!variable.is_equipped_chinese_assault_rifle"
+                        },
+                        {
+                            "wielding": "query.any_animation_finished"
+                        }
+                    ],
+                    "blend_transition": 0.125,
+                    "animations": [
+                        "attachables.chinese_assault_rifle.shoot"
+                    ],
+                    "sound_effects": [
+                        {
+                            "effect": "chinese_assault_rifle.fire"
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}

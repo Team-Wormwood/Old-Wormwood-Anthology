@@ -1,0 +1,30 @@
+{
+    "format_version": "1.8.0",
+    "animations": {
+        "animation.attachable.adventure_hat.head_position": {
+            "loop": true,
+            "bones": {
+                "hat": {
+                    "scale": 1.150,
+                    "position": [
+                        0.5,
+                        23.5,
+                        0.0
+                    ]
+                }
+            }
+        },
+        "animation.attachable.spear.first_person_weild": {
+            "loop": true,
+            "bones": {
+                "rightItem": {
+                    "rotation": [
+                        "c.is_first_person ? 30.0 : 0.0",
+                        "c.is_first_person ? 15.0 : 0.0",
+                        "c.is_first_person ? 0.0 : 0.0"
+                    ]
+                }
+            }
+        }
+    }
+}

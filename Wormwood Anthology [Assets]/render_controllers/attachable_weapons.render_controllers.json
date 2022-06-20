@@ -1,0 +1,47 @@
+{
+    "format_version": "1.8.0",
+    "render_controllers": {
+        "controller.render.player.first_person": {
+            "geometry": "Geometry.default",
+            "materials": [
+                {
+                    "*": "Material.default"
+                }
+            ],
+            "textures": [
+                "Texture.default"
+            ],
+            "part_visibility": [
+                {
+                    "*": false
+                },
+                {
+                    "rightArm": "variable.is_equipped_any_attachable_weapon || query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'map'"
+                },
+                {
+                    "rightSleeve": "variable.is_equipped_any_attachable_weapon || query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'map'"
+                },
+                {
+                    "leftArm": "variable.is_equipped_any_attachable_weapon || (query.get_equipped_item_name(0, 1) == 'map' && query.get_equipped_item_name('off_hand') != 'shield') || (query.get_equipped_item_name('off_hand') == 'map' && !query.item_is_charged) || (!query.item_is_charged && (variable.item_use_normalized > 0 && variable.item_use_normalized < 1.0))"
+                },
+                {
+                    "leftSleeve": "variable.is_equipped_any_attachable_weapon || (query.get_equipped_item_name(0, 1) == 'map' && query.get_equipped_item_name('off_hand') != 'shield') || (query.get_equipped_item_name('off_hand') == 'map' && !query.item_is_charged) || (!query.item_is_charged && (variable.item_use_normalized > 0 && variable.item_use_normalized < 1.0))"
+                }
+            ]
+        },
+        "controller.render.player.chinese_assault_rifle": {
+            "geometry": "geometry.chinese_assault_rifle",
+            "textures": [
+                "texture.chinese_assault_rifle"
+            ],
+            "materials": [
+                {
+                    "*": "material.default"
+                }
+            ],
+            "is_hurt_color": {
+                "a": 0
+            }
+        }
+    }
+}
