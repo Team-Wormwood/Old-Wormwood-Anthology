@@ -74,7 +74,7 @@
 				"default": {
 					"transitions": [
 						{
-							"adventure_hats": "query.is_item_name_any('slot.armor.head', 0, 'worldbeyond:adventure_hat') || query.is_item_name_any('slot.armor.head', 0, 'worldbeyond:colourful_adventure_hat')"
+							"adventure_hats": "query.is_item_name_any('slot.armor.head', 0, 'wormwood:adventure_hat') || query.is_item_name_any('slot.armor.head', 0, 'wormwood:colourful_adventure_hat')"
 						}
 					]
 				},
@@ -84,7 +84,7 @@
 					],
 					"transitions": [
 						{
-							"default": "!query.is_item_name_any('slot.armor.head', 0, 'worldbeyond:adventure_hat') || !query.is_item_name_any('slot.armor.head', 0, 'worldbeyond:colourful_adventure_hat')"
+							"default": "!query.is_item_name_any('slot.armor.head', 0, 'wormwood:adventure_hat') || !query.is_item_name_any('slot.armor.head', 0, 'wormwood:colourful_adventure_hat')"
 						}
 					]
 				}

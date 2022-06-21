@@ -51,7 +51,7 @@
 					//
 					"variable.should_render_in_hud = !query.is_riding && !query.is_gliding && query.is_alive && query.is_in_ui && !variable.map_face_icon;",
 					"variable.fixed_arm_positions = query.is_on_screen ? variable.is_equipped_any_attachable_weapon;",
-					"temp.distance = ( query.mark_variant > 0 ) ? 0 : 500; temp.fade_speed = 0.33; temp.fade_amount = 0.5; temp.delta_time = variable.is_first_person ? query.delta_time : query.last_frame_time; variable.advancements_fade_motion = variable.advancements_fade_motion + ( temp.distance - variable.advancements_fade_motion ) * ( 1 - math.pow( temp.fade_speed , temp.delta_time / temp.fade_amount ) );",
+					"temp.distance = ( query.skin_id > 0 ) ? 0 : 500; temp.fade_speed = 0.33; temp.fade_amount = 0.5; temp.delta_time = variable.is_first_person ? query.delta_time : query.last_frame_time; variable.advancements_fade_motion = variable.advancements_fade_motion + ( temp.distance - variable.advancements_fade_motion ) * ( 1 - math.pow( temp.fade_speed , temp.delta_time / temp.fade_amount ) );",
 					// Vanilla Variables // 
 					"variable.helmet_layer_visible = 1.0;",
 					"variable.leg_layer_visible = 1.0;",
@@ -66,7 +66,12 @@
 				],
 				"animate": [
 					"advancements_offsets",
-					"modified_root",
+					{
+						"modified_root": "variable.is_equipped_any_attachable_weapon"
+					},
+					{
+						"root": "!variable.is_equipped_any_attachable_weapon"
+					},
 					{
 						"attachable_root": "!variable.is_paperdoll && !variable.map_face_icon"
 					}
@@ -143,6 +148,9 @@
 				// Custom-Made Render Controllers //
 				{
 					"controller.render.player.chinese_assault_rifle": "variable.is_equipped_chinese_assault_rifle"
+				},
+				{
+					"controller.render.player.advancements_ui": "variable.should_render_in_hud && variable.advancements_fade_motion < 649.0f"
 				},
 				// Modified Render Controllers //
 				{
