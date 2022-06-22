@@ -292,7 +292,10 @@
 				"value": 0.0
 			},
 			"minecraft:movement.basic": {},
-			"minecraft:nameable": {},
+			"minecraft:nameable": {
+				"allow_name_tag_renaming": true,
+				"always_show": true
+			},
 			"minecraft:navigation.walk": {
 				"avoid_damage_blocks": true,
 				"can_path_over_water": true,

@@ -682,7 +682,6 @@
 			}
 		},
 		"animation.wormwood.player.attachables.chinese_assault_rifle.shoot": {
-			"loop": "hold_on_last_frame",
 			"animation_length": 0.68,
 			"bones": {
 				"leftArm": {

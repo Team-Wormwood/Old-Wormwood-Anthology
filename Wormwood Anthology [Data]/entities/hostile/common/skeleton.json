@@ -236,7 +236,10 @@
 			"minecraft:movement.basic": {},
 			"minecraft:jump.static": {},
 			"minecraft:can_climb": {},
-			"minecraft:nameable": {},
+			"minecraft:nameable": {
+				"allow_name_tag_renaming": true,
+				"always_show": true
+			},
 			"minecraft:equipment": {
 				"table": "loot_tables/entities/skeleton_gear.json"
 			},

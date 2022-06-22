@@ -2,6 +2,23 @@
 	"format_version": "1.10.0",
 	"animation_controllers": {
 		// The Fury of Wormwood //
+		"controller.animation.server_player.player_ranged_weapons_general": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"removeclientflag.ChineseAssaultRifle": "query.mark_variant == 1"
+						}
+					]
+				},
+				"removeclientflag.ChineseAssaultRifle": {
+					"on_entry": [
+						"@s modified_player:removeclientFlag.firing.chinese_assault_rifle"
+					]
+				}
+			}
+		},
 		"controller.animation.wormwood.player.ranged_weapons": {
 			"initial_state": "default",
 			"states": {
@@ -45,29 +62,6 @@
 			}
 		},
 		// World Beyond //
-		"controller.animation.solar_medallion": {
-			"initial_state": "default",
-			"states": {
-				"default": {
-					"transitions": [
-						{
-							"effect": "query.get_equipped_item_name('off_hand') == 'solar_medallion' && query.time_of_day > 0.25 && query.time_of_day < 0.75"
-						}
-					]
-				},
-				"effect": {
-					"transitions": [
-						{
-							"default": "1.0"
-						}
-					],
-					"on_entry": [
-						"/effect @s strength 3 8 true",
-						"/effect @s resistance 3 8 true"
-					]
-				}
-			}
-		},
 		"controller.animation.item_equip_sounds": {
 			"initial_state": "default",
 			"states": {

@@ -9,10 +9,10 @@
             }
         },
 		"animation.wormwood.player.chinese_assault_rifle.cooldown": {
-            "animation_length": 0.7,
+            "animation_length": 0.11,
             "loop": true,
 			"timeline": {
-				"0.68": [
+				"0.1": [
 					"@s modified_player:remove_cooldown.chinese_assault_rifle"
 				]
 			}

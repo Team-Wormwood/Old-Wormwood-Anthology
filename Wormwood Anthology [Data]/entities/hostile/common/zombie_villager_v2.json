@@ -464,7 +464,10 @@
 			"minecraft:attack": {
 				"damage": 3
 			},
-			"minecraft:nameable": {},
+			"minecraft:nameable": {
+				"allow_name_tag_renaming": true,
+				"always_show": true
+			},
 			"minecraft:shareables": {
 				"items": [
 					{

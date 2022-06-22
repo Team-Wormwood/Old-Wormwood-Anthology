@@ -204,7 +204,10 @@
 			},
 			"minecraft:follow_range": 30,
 			"minecraft:fire_immune": {},
-			"minecraft:nameable": {},
+			"minecraft:nameable": {
+				"allow_name_tag_renaming": true,
+				"always_show": true
+			},
 			"minecraft:loot": {
 				"table": "loot_tables/entities/warden.json"
 			}

@@ -12,26 +12,58 @@
 					"controller.advancements",
 					"advancement.feet_wet",
 					"advancement.adventuring_journey",
+					"solar_medallion",
 					"flag_items"
 				]
 			},
 			"animations": {
 				// Controllers // 
-				"controller.ranged_weapons": "controller.animation.server_player.player_ranged_weapons_general",
+				"controller.ranged_weapons": "controller.animation.wormwood.player.ranged_weapons",
+				"controller.chinese_assault_rifle": "controller.animation.wormwood.player.chinese_assault_rifle",
 				"controller.advancements": "controller.animation.server.player_advancements.general",
 				"advancement.feet_wet": "controller.animation.server.player_advancements.feet_wet",
 				"advancement.adventuring_journey": "controller.animation.server.player_advancements.adventuring_journey",
-				"flag_items": "controller.animation.flag_items"
+				"solar_medallion": "controller.animation.solar_medallion",
+				"flag_items": "controller.animation.flag_items",
+				// Animations // 
+				"chinese_assault_rifle.firing": "animation.wormwood.player.chinese_assault_rifle.firing",
+				"chinese_assault_rifle.cooldown": "animation.wormwood.player.chinese_assault_rifle.cooldown"
 			}
 		},
 		"component_groups": {
 			// ------------------------ // 
 			//   The Fury of Wormwood    //
 			// ------------------------ // 
-			//
-			"wormwood:clientFlag.firing_chinese_assault_rifle": {
+			// Projectile Shooters //
+			"wormwood:chinese_assault_rifle.projectile_shooter": {
+				"minecraft:spawn_entity": {
+					"entities": {
+						"single_use": true,
+						"min_wait_time": 0,
+						"max_wait_time": 0,
+						"spawn_sound": "none",
+						"spawn_event": "minecraft:entity_spawned",
+						"spawn_entity": "wormwood:bullet.chinese_assault_rifle"
+					}
+				},
+				"minecraft:shooter": {
+					"def": "wormwood:bullet.chinese_assault_rifle"
+				},
+				"minecraft:environment_sensor": {
+					"triggers": {
+						"event": "modified_player:remove_shooter.chinese_assault_rifle"
+					}
+				}
+			},
+			// Firing States //
+			"wormwood:chinese_assault_rifle.can_fire": {
 				"minecraft:mark_variant": {
 					"value": 1
+				}
+			},
+			"wormwood:chinese_assault_rifle.cannot_fire": {
+				"minecraft:mark_variant": {
+					"value": 2
 				}
 			},
 			// ------------------------ // 
@@ -273,27 +305,22 @@
 			"minecraft:entity_spawned": {
 				"add": {
 					"component_groups": [
+						"wormwood:chinese_assault_rifle.can_fire",
 						"wormwood:hitbox.default"
 					]
 				}
 			},
-			// Client Flags //
-			"modified_player:addclientFlag.firing.chinese_assault_rifle": {
-				"add": {
-					"component_groups": [
-						"wormwood:clientFlag.firing_chinese_assault_rifle"
-					]
-				}
-			},
-			"modified_player:removeclientFlag.firing.chinese_assault_rifle": {
-				"add": {
-					"component_groups": [
-						"wormwood:clientFlag.default"
-					]
-				},
-				"remove": {
-					"component_groups": [
-						"wormwood:clientFlag.firing_chinese_assault_rifle"
+			// Stasis Chamber //
+			"modified_player:stasis_chamber.lethal_damage": {
+				"run_command": {
+					"command": [
+						"effect @s resistance 1 12",
+						"effect @s absorption 8 4",
+						"effect @s instant_health 1 255",
+						"effect @s regeneration 8 3",
+						"effect @s fire_resistance 8",
+						"replaceitem entity @s slot.armor.head -1 air",
+						"tp @s @e[type=wormwood:stasis_eye]"
 					]
 				}
 			},
@@ -319,20 +346,6 @@
 					]
 				}
 			},
-			// Stasis Chamber //
-			"modified_player:stasis_chamber.lethal_damage": {
-				"run_command": {
-					"command": [
-						"effect @s resistance 1 12",
-						"effect @s absorption 8 4",
-						"effect @s instant_health 1 255",
-						"effect @s regeneration 8 3",
-						"effect @s fire_resistance 8",
-						"replaceitem entity @s slot.armor.head -1 air",
-						"tp @s @e[type=wormwood:stasis_eye]"
-					]
-				}
-			},
 			// Sneaking Events //
 			"modified_player:sneak": {
 				"add": {
@@ -355,6 +368,52 @@
 				"remove": {
 					"component_groups": [
 						"wormwood:hitbox.sneaking"
+					]
+				}
+			},
+			// Shooting Events //
+			"modified_player:projectile_shot.chinese_assault_rifle": {
+				"add": {
+					"component_groups": [
+						"wormwood:chinese_assault_rifle.projectile_shooter",
+						"wormwood:chinese_assault_rifle.cannot_fire"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"wormwood:chinese_assault_rifle.can_fire"
+					]
+				}
+			},
+			// Removal Events //
+			"modified_player:remove_all_cooldowns": {
+				"add": {
+					"component_groups": [
+						"wormwood:chinese_assault_rifle.can_fire"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"wormwood:chinese_assault_rifle.cannot_fire"
+					]
+				}
+			},
+			"modified_player:remove_shooter.chinese_assault_rifle": {
+				"remove": {
+					"component_groups": [
+						"wormwood:chinese_assault_rifle.projectile_shooter"
+					]
+				}
+			},
+			"modified_player:remove_cooldown.chinese_assault_rifle": {
+				"add": {
+					"component_groups": [
+						"wormwood:chinese_assault_rifle.can_fire"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"wormwood:chinese_assault_rifle.cannot_fire"
 					]
 				}
 			},

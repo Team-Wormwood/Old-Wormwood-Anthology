@@ -166,7 +166,10 @@
 				"event": "minecraft:become_calm",
 				"target": "self"
 			},
-			"minecraft:nameable": {},
+			"minecraft:nameable": {
+				"allow_name_tag_renaming": true,
+				"always_show": true
+			},
 			"minecraft:despawn": {
 				"despawn_from_distance": {}
 			},
