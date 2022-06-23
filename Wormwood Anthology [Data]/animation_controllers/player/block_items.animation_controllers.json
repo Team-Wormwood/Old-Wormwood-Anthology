@@ -1,7 +1,7 @@
 {
 	"format_version": "1.10.0",
 	"animation_controllers": {
-		"controller.animation.flag_items": {
+		"controller.animation.server_player.block_items": {
 			"initial_state": "default",
 			"states": {
 				"default": {

@@ -1,0 +1,33 @@
+{
+    "format_version": "1.16.100",
+    "minecraft:block": {
+        "description": {
+            "identifier": "wormwood:light_block.1"
+        },
+        "components": {
+            "minecraft:pick_collision": false,
+            "minecraft:entity_collision": false,
+            "minecraft:block_light_emission": 0.33,
+            "minecraft:loot": "loot_tables/empty.json",
+            "tag:air": {},
+            "minecraft:material_instances": {
+                "*": {
+                    "texture": "invisible",
+                    "render_method": "alpha_test"
+                }
+            },
+            "minecraft:ticking": {
+                "loop": true,
+                "range": 0.0,
+                "on_tick": {
+                    "event": "light_block:destroy"
+                }
+            }
+        },
+        "events": {
+            "light_block:destroy": {
+                "die": {}
+            }
+        }
+    }
+}

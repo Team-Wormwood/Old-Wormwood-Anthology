@@ -8,20 +8,20 @@
 			"is_summonable": false,
 			"scripts": {
 				"animate": [
-					"controller.ranged_weapons",
 					"controller.advancements",
+					"controller.block_items",
+					"controller.ranged_weapons",
 					"advancement.feet_wet",
-					"advancement.adventuring_journey",
-					"flag_items"
+					"advancement.adventuring_journey"
 				]
 			},
 			"animations": {
-				// Controllers // 
-				"controller.ranged_weapons": "controller.animation.server_player.player_ranged_weapons_general",
+				// Controllers // 		
 				"controller.advancements": "controller.animation.server.player_advancements.general",
+				"controller.block_items": "controller.animation.server_player.block_items",
+				"controller.ranged_weapons": "controller.animation.server_player.player_ranged_weapons_general",
 				"advancement.feet_wet": "controller.animation.server.player_advancements.feet_wet",
-				"advancement.adventuring_journey": "controller.animation.server.player_advancements.adventuring_journey",
-				"flag_items": "controller.animation.flag_items"
+				"advancement.adventuring_journey": "controller.animation.server.player_advancements.adventuring_journey"
 			}
 		},
 		"component_groups": {
@@ -29,7 +29,12 @@
 			//   The Fury of Wormwood    //
 			// ------------------------ // 
 			//
-			"wormwood:clientFlag.firing_chinese_assault_rifle": {
+			"wormwood:client_flag_default": {
+				"minecraft:mark_variant": {
+					"value": 0
+				}
+			},
+			"wormwood:client_flag_chinese_assault_rifle_firing": {
 				"minecraft:mark_variant": {
 					"value": 1
 				}
@@ -273,27 +278,33 @@
 			"minecraft:entity_spawned": {
 				"add": {
 					"component_groups": [
-						"wormwood:hitbox.default"
+						"wormwood:hitbox.default",
+						"wormwood:client_flag_default"
 					]
 				}
 			},
 			// Client Flags //
-			"modified_player:addclientFlag.firing.chinese_assault_rifle": {
+			"modified_player:add_client_flag.chinese_assault_rifle": {
 				"add": {
 					"component_groups": [
-						"wormwood:clientFlag.firing_chinese_assault_rifle"
-					]
-				}
-			},
-			"modified_player:removeclientFlag.firing.chinese_assault_rifle": {
-				"add": {
-					"component_groups": [
-						"wormwood:clientFlag.default"
+						"wormwood:client_flag_chinese_assault_rifle_firing"
 					]
 				},
 				"remove": {
 					"component_groups": [
-						"wormwood:clientFlag.firing_chinese_assault_rifle"
+						"wormwood:client_flag_default"
+					]
+				}
+			},
+			"modified_player:remove_client_flag.chinese_assault_rifle": {
+				"add": {
+					"component_groups": [
+						"wormwood:client_flag_default"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"wormwood:client_flag_chinese_assault_rifle_firing"
 					]
 				}
 			},

@@ -42,7 +42,7 @@
                             "pre_not_holding": "!variable.is_equipped_chinese_assault_rifle"
                         },
                         {
-                            "shooting": "query.is_using_item"
+                            "shooting": "query.mark_variant == 1"
                         }
                     ],
                     "blend_transition": 0.125
@@ -56,17 +56,17 @@
                             "input": "variable.time + query.delta_time"
                         }
                     },
+                    "animations": [
+                        "attachables.chinese_assault_rifle.shoot"
+                    ],
+                    "blend_transition": 0.6,
                     "transitions": [
                         {
                             "pre_not_holding": "!variable.is_equipped_chinese_assault_rifle"
                         },
                         {
-                            "wielding": "query.any_animation_finished"
+                            "wielding": "query.any_animation_finished ? 1 : query.mark_variant == 0"
                         }
-                    ],
-                    "blend_transition": 0.125,
-                    "animations": [
-                        "attachables.chinese_assault_rifle.shoot"
                     ],
                     "sound_effects": [
                         {

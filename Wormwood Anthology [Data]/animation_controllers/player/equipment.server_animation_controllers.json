@@ -8,13 +8,18 @@
 				"default": {
 					"transitions": [
 						{
-							"removeclientflag.ChineseAssaultRifle": "query.mark_variant == 1"
+							"chinese_assault_rifle.firing": "query.mark_variant == 1"
 						}
 					]
 				},
-				"removeclientflag.ChineseAssaultRifle": {
+				"chinese_assault_rifle.firing": {
 					"on_entry": [
-						"@s modified_player:removeclientFlag.firing.chinese_assault_rifle"
+						"@s modified_player:remove_client_flag.chinese_assault_rifle"
+					],
+					"transitions": [
+						{
+							"default": "1"
+						}
 					]
 				}
 			}

@@ -14,7 +14,6 @@
 				"advancements_ui": "geometry.advancements_ui",
 				// Attachable Weapons Models //
 				"chinese_assault_rifle": "geometry.chinese_assault_rifle",
-				"hunting_revolver": "geometry.hunting_revolver",
 				// Vanilla Models //
 				"default": "geometry.humanoid.custom",
 				"cape": "geometry.cape"
@@ -45,7 +44,6 @@
 				],
 				"pre_animation": [
 					// Custom-Made Variables // 
-					"variable.is_equipped_hunting_revolver = query.is_on_screen ? query.is_item_name_any('slot.weapon.mainhand', 0, 'wormwood:hunting_revolver');",
 					"variable.is_equipped_chinese_assault_rifle = query.is_on_screen ? query.is_item_name_any('slot.weapon.mainhand', 'wormwood:chinese_assault_rifle');",
 					"variable.is_equipped_any_attachable_weapon = query.is_on_screen ? query.is_item_name_any('slot.weapon.mainhand', 0, 'wormwood:hunting_revolver', 'wormwood:chinese_assault_rifle');",
 					//
