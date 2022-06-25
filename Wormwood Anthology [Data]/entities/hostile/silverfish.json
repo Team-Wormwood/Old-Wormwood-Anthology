@@ -49,7 +49,9 @@
         "suffocate_time": 0
       },
       "minecraft:nameable": {
-      },
+				"allow_name_tag_renaming": true,
+				"always_show": true
+			},
       "minecraft:loot": {
         "table": "loot_tables/entities/silverfish.json"
       },

@@ -70,7 +70,9 @@
         "on_death": "query.last_hit_by_player ? 10 : 0"
       },
       "minecraft:nameable": {
-      },
+				"allow_name_tag_renaming": true,
+				"always_show": true
+			},
       "minecraft:collision_box": {
         "width": 0.85,
         "height": 0.85

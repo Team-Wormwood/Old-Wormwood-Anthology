@@ -135,7 +135,9 @@
         "block_weight": 0.85
       },
       "minecraft:nameable": {
-      },
+				"allow_name_tag_renaming": true,
+				"always_show": true
+			},
       "minecraft:conditional_bandwidth_optimization": {
       }
     }

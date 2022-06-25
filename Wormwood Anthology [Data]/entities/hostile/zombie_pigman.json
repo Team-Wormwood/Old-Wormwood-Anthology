@@ -73,7 +73,9 @@
         "height": 1.9
       },
       "minecraft:nameable": {
-      },
+				"allow_name_tag_renaming": true,
+				"always_show": true
+			},
       "minecraft:navigation.walk": {
         "is_amphibious": true,
         "can_pass_doors": true,

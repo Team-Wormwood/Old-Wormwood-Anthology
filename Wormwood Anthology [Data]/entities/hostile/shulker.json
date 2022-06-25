@@ -111,7 +111,9 @@
         "breathes_water": false
       },
       "minecraft:nameable": {
-      },
+				"allow_name_tag_renaming": true,
+				"always_show": true
+			},
       "minecraft:conditional_bandwidth_optimization": {
         "default_values": {
           "max_optimized_distance": 80.0,

@@ -35,7 +35,9 @@
         "table": "loot_tables/entities/armor_stand.json"
       },
       "minecraft:nameable": {
-      },
+				"allow_name_tag_renaming": true,
+				"always_show": true
+			},
       "minecraft:persistent": {
       },
       "minecraft:physics": {

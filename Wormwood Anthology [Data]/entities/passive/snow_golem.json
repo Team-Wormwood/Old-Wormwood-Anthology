@@ -26,7 +26,9 @@
         "suffocate_time": 0
       },
       "minecraft:nameable": {
-      },
+				"allow_name_tag_renaming": true,
+				"always_show": true
+			},
       "minecraft:collision_box": {
         "width": 0.4,
         "height": 1.8

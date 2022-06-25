@@ -242,7 +242,9 @@
       "minecraft:is_hidden_when_invisible": {
       },
       "minecraft:nameable": {
-      },
+				"allow_name_tag_renaming": true,
+				"always_show": true
+			},
       "minecraft:health": {
         "value": 40,
         "max": 40

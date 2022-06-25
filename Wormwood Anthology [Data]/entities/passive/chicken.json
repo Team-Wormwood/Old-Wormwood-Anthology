@@ -100,7 +100,9 @@
         "height": 0.8
       },
       "minecraft:nameable": {
-      },
+				"allow_name_tag_renaming": true,
+				"always_show": true
+			},
       "minecraft:health": {
         "value": 4,
         "max": 4

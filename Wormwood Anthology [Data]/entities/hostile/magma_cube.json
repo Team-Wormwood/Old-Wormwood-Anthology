@@ -102,7 +102,9 @@
         "breathes_lava": true
       },
       "minecraft:nameable": {
-      },
+				"allow_name_tag_renaming": true,
+				"always_show": true
+			},
       "minecraft:fire_immune": {
       },
       "minecraft:burns_in_daylight": false,

@@ -7,8 +7,9 @@
         "components": {
             "minecraft:pick_collision": false,
             "minecraft:entity_collision": false,
-            "minecraft:block_light_emission": 0.33,
+            "minecraft:block_light_emission": 0.75,
             "minecraft:loot": "loot_tables/empty.json",
+            "minecraft:unit_cube": {},
             "tag:air": {},
             "minecraft:material_instances": {
                 "*": {
@@ -18,7 +19,10 @@
             },
             "minecraft:ticking": {
                 "loop": true,
-                "range": 0.0,
+                "range": [
+                    0.0,
+                    0.0
+                ],
                 "on_tick": {
                     "event": "light_block:destroy"
                 }

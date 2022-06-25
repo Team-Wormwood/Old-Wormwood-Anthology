@@ -160,7 +160,12 @@
 			"states": {
 				"default": {
 					"animations": [
-						"attachables.chinese_assault_rifle.setup"
+						{
+							"attachables.chinese_assault_rifle.setup": "variable.is_equipped_chinese_assault_rifle"
+						},
+						{
+							"attachables.laser_pistol.setup": "variable.is_equipped_laser_pistol"
+						}
 					]
 				}
 			}

@@ -22,10 +22,10 @@
                     "rightSleeve": "variable.is_equipped_any_attachable_weapon || query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'map'"
                 },
                 {
-                    "leftArm": "variable.is_equipped_any_attachable_weapon || (query.get_equipped_item_name(0, 1) == 'map' && query.get_equipped_item_name('off_hand') != 'shield') || (query.get_equipped_item_name('off_hand') == 'map' && !query.item_is_charged) || (!query.item_is_charged && (variable.item_use_normalized > 0 && variable.item_use_normalized < 1.0))"
+                    "leftArm": "variable.attack_time == 0.0f && (variable.is_equipped_any_attachable_weapon || (query.get_equipped_item_name(0, 1) == 'map' && query.get_equipped_item_name('off_hand') != 'shield') || (query.get_equipped_item_name('off_hand') == 'map' && !query.item_is_charged) || (!query.item_is_charged && (variable.item_use_normalized > 0 && variable.item_use_normalized < 1.0)))"
                 },
                 {
-                    "leftSleeve": "variable.is_equipped_any_attachable_weapon || (query.get_equipped_item_name(0, 1) == 'map' && query.get_equipped_item_name('off_hand') != 'shield') || (query.get_equipped_item_name('off_hand') == 'map' && !query.item_is_charged) || (!query.item_is_charged && (variable.item_use_normalized > 0 && variable.item_use_normalized < 1.0))"
+                    "leftSleeve": "variable.attack_time == 0.0f && (variable.is_equipped_any_attachable_weapon || (query.get_equipped_item_name(0, 1) == 'map' && query.get_equipped_item_name('off_hand') != 'shield') || (query.get_equipped_item_name('off_hand') == 'map' && !query.item_is_charged) || (!query.item_is_charged && (variable.item_use_normalized > 0 && variable.item_use_normalized < 1.0)))"
                 }
             ]
         },
@@ -36,7 +36,49 @@
             ],
             "materials": [
                 {
-                    "*": "material.default"
+                    "*": "material.emissive"
+                }
+            ],
+            "part_visibility": [
+                {
+                    "*": true
+                },
+                {
+                    "muzzle_flash": "query.mark_variant == 1"
+                },
+                {
+                    "magazine": "query.variant == 1"
+                },
+                {
+                    "leftItem": false
+                }
+            ],
+            "is_hurt_color": {
+                "a": 0
+            }
+        },
+        "controller.render.player.laser_pistol": {
+            "geometry": "geometry.laser_pistol",
+            "textures": [
+                "texture.laser_pistol"
+            ],
+            "materials": [
+                {
+                    "*": "material.emissive"
+                }
+            ],
+            "part_visibility": [
+                {
+                    "*": true
+                },
+                {
+                    "muzzle_flash": "query.mark_variant == 2"
+                },
+                {
+                    "energy_cell": "query.variant == 3"
+                },
+                {
+                    "leftItem": false
                 }
             ],
             "is_hurt_color": {

@@ -6,6 +6,7 @@
 			"materials": {
 				// Vanilla //
 				"default": "entity_alphatest",
+				"emissive": "entity_emissive_alpha",
 				"cape": "entity_alphatest",
 				"animated": "player_animated"
 			},
@@ -14,6 +15,7 @@
 				"advancements_ui": "geometry.advancements_ui",
 				// Attachable Weapons Models //
 				"chinese_assault_rifle": "geometry.chinese_assault_rifle",
+				"laser_pistol": "geometry.laser_pistol",
 				// Vanilla Models //
 				"default": "geometry.humanoid.custom",
 				"cape": "geometry.cape"
@@ -24,12 +26,14 @@
 				"advancement.adventuring_journey": "textures/ui/advancements/adventuring_journey",
 				// Attachable Weapons Textures //
 				"chinese_assault_rifle": "textures/attachables/chinese_assault_rifle",
+				"laser_pistol": "textures/attachables/laser_pistol",
 				// Vanilla Textures //
 				"default": "textures/entity/steve",
 				"cape": "textures/entity/cape_invisible"
 			},
 			"sound_effects": {
-				"chinese_assault_rifle.fire": "weapon.chinese_assault_rifle.fire"
+				"chinese_assault_rifle.fire": "weapon.chinese_assault_rifle.fire",
+				"laser_pistol.fire": "weapon.laser_pistol.fire"
 			},
 			"scripts": {
 				"initialize": [
@@ -44,8 +48,9 @@
 				],
 				"pre_animation": [
 					// Custom-Made Variables // 
+					"variable.is_equipped_laser_pistol = query.is_on_screen ? query.is_item_name_any('slot.weapon.mainhand', 'wormwood:laser_pistol');",
 					"variable.is_equipped_chinese_assault_rifle = query.is_on_screen ? query.is_item_name_any('slot.weapon.mainhand', 'wormwood:chinese_assault_rifle');",
-					"variable.is_equipped_any_attachable_weapon = query.is_on_screen ? query.is_item_name_any('slot.weapon.mainhand', 0, 'wormwood:hunting_revolver', 'wormwood:chinese_assault_rifle');",
+					"variable.is_equipped_any_attachable_weapon = query.is_on_screen ? query.is_item_name_any('slot.weapon.mainhand', 0, 'wormwood:laser_pistol', 'wormwood:chinese_assault_rifle');",
 					//
 					"variable.should_render_in_hud = !query.is_riding && !query.is_gliding && query.is_alive && query.is_in_ui && !variable.map_face_icon;",
 					"variable.fixed_arm_positions = query.is_on_screen ? variable.is_equipped_any_attachable_weapon;",
@@ -85,7 +90,12 @@
 				"attachables.chinese_assault_rifle.wield.first_person": "animation.wormwood.player.attachables.chinese_assault_rifle.wield.first_person",
 				"attachables.chinese_assault_rifle.wield.third_person": "animation.wormwood.player.attachables.chinese_assault_rifle.wield.third_person",
 				"attachables.chinese_assault_rifle.shoot": "animation.wormwood.player.attachables.chinese_assault_rifle.shoot",
-				"attachables.chinese_assault_rifle.shoot.particles": "animation.wormwood.player.attachables.chinese_assault_rifle.shoot.particles",
+				//
+				"attachables.laser_pistol.setup": "controller.animation.wormwood.player.attachables.laser_pistol.setup",
+				"attachables.laser_pistol.controller": "controller.animation.wormwood.player.attachables.laser_pistol.controller",
+				"attachables.laser_pistol.wield.first_person": "animation.wormwood.player.attachables.laser_pistol.wield.first_person",
+				"attachables.laser_pistol.wield.third_person": "animation.wormwood.player.attachables.laser_pistol.wield.third_person",
+				"attachables.laser_pistol.shoot": "animation.wormwood.player.attachables.laser_pistol.shoot",
 				// Modified Animations //
 				"modified_root": "controller.animation.player.modified_root",
 				"attachable_root": "controller.animation.player.attachable_root",
@@ -146,6 +156,9 @@
 				// Custom-Made Render Controllers //
 				{
 					"controller.render.player.chinese_assault_rifle": "variable.is_equipped_chinese_assault_rifle"
+				},
+				{
+					"controller.render.player.laser_pistol": "variable.is_equipped_laser_pistol"
 				},
 				{
 					"controller.render.player.advancements_ui": "variable.should_render_in_hud && variable.advancements_fade_motion < 649.0f"

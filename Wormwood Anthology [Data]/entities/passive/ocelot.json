@@ -174,7 +174,9 @@
         "value": 3
       },
       "minecraft:nameable": {
-      },
+				"allow_name_tag_renaming": true,
+				"always_show": true
+			},
       "minecraft:type_family": {
         "family": [ "ocelot", "mob" ]
       },

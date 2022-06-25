@@ -278,7 +278,9 @@
       "minecraft:jump.static": {
       },
       "minecraft:nameable": {
-      },
+				"allow_name_tag_renaming": true,
+				"always_show": true
+			},
       "minecraft:horse.jump_strength": {
         "value": 0.5
       },

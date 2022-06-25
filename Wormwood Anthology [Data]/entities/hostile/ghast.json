@@ -21,7 +21,9 @@
       "minecraft:fire_immune": {
       },
       "minecraft:nameable": {
-      },
+				"allow_name_tag_renaming": true,
+				"always_show": true
+			},
       "minecraft:health": {
         "value": 10,
         "max": 10

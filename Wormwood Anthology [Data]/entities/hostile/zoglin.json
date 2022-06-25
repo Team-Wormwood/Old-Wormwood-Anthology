@@ -65,7 +65,9 @@
       "minecraft:is_hidden_when_invisible": {
       },
       "minecraft:nameable": {
-      },
+				"allow_name_tag_renaming": true,
+				"always_show": true
+			},
       "minecraft:loot": {
         "table": "loot_tables/entities/zoglin.json"
       },

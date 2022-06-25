@@ -48,7 +48,9 @@
         "table": "loot_tables/entities/wither_boss.json"
       },
       "minecraft:nameable": {
-      },
+				"allow_name_tag_renaming": true,
+				"always_show": true
+			},
       "minecraft:movement": {
         "value": 0.25
       },

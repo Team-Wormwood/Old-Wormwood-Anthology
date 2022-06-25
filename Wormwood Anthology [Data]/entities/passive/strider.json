@@ -264,7 +264,9 @@
       "minecraft:fire_immune": {
       },
       "minecraft:nameable": {
-      },
+				"allow_name_tag_renaming": true,
+				"always_show": true
+			},
       "minecraft:physics": {
       },
       "minecraft:behavior.rise_to_liquid_level": {

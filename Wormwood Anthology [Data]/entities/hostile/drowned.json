@@ -116,7 +116,9 @@
 
     "components": {
       "minecraft:nameable": {
-      },
+				"allow_name_tag_renaming": true,
+				"always_show": true
+			},
 
       // Zombie Components
       "minecraft:type_family": {
