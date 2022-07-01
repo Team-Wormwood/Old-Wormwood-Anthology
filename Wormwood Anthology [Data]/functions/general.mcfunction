@@ -1,4 +1,6 @@
 ## Team Wormwood - 2022
+## Run from [/tick.json]
+
 
 ## The Fury of Wormwood
 execute @a[tag=!initialised] ~ ~ ~ scoreboard objectives add ammunition.CAR dummy
@@ -12,7 +14,6 @@ tag @a add initialised
 event entity @a[ scores = { ammunition.CAR = 0 } ] modified_player:set_client_flag.chinese_assault_rifle_empty
 
 event entity @a[ scores = { ammunition.CAR = 1..24 } ] modified_player:set_client_flag.chinese_assault_rifle_full
-
 
 event entity @a[ scores = { ammunition.LaPi = 0 } ] modified_player:set_client_flag.laser_pistol_empty
 
