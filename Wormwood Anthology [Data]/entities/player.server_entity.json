@@ -278,6 +278,7 @@
 			},
 			"minecraft:environment_sensor": {
 				"triggers": [
+					// Vanilla Environment Sensors //
 					{
 						"filters": {
 							"all_of": [
@@ -295,6 +296,7 @@
 						},
 						"event": "minecraft:trigger_raid"
 					},
+					// General //
 					{
 						"filters": {
 							"test": "is_sneaking",
@@ -310,6 +312,53 @@
 							"value": false
 						},
 						"event": "modified_player:stand"
+					},
+					// Howling Depths //
+					{
+						"filters": {
+							"test": "light_level",
+							"subject": "self",
+							"operator": ">",
+							"value": 12
+						},
+						"event": "modified_player:mood.regain"
+					},
+					{
+						"filters": {
+							"test": "light_level",
+							"subject": "self",
+							"operator": ">",
+							"value": 7
+						},
+						"event": "modified_player:mood.modify.maintain"
+					},
+					{
+						"filters": {
+							"all_of": [
+								{
+									"test": "light_level",
+									"subject": "self",
+									"operator": "<",
+									"value": 8
+								},
+								{
+									"test": "light_level",
+									"subject": "self",
+									"operator": ">",
+									"value": 0
+								}
+							]
+						},
+						"event": "modified_player:mood.modify.drain"
+					},
+					{
+						"filters": {
+							"test": "light_level",
+							"subject": "self",
+							"operator": "==",
+							"value": 0
+						},
+						"event": "modified_player:mood.modify.drain_2x"
 					}
 				]
 			}
@@ -570,6 +619,35 @@
 				"remove": {
 					"component_groups": [
 						"wormwood:hitbox.sneaking"
+					]
+				}
+			},
+			// Mood Events //
+			"modified_player:mood.regain": {
+				"run_command": {
+					"command": [
+						"tag @s add mood.regain"
+					]
+				}
+			},
+			"modified_player:mood.modify.maintain": {
+				"run_command": {
+					"command": [
+						"scoreboard players set @s mood.modifier 0"
+					]
+				}
+			},
+			"modified_player:mood.modify.drain": {
+				"run_command": {
+					"command": [
+						"scoreboard players set @s mood.modifier 1"
+					]
+				}
+			},
+			"modified_player:mood.modify.drain_2x": {
+				"run_command": {
+					"command": [
+						"scoreboard players set @s mood.modifier 2"
 					]
 				}
 			},

@@ -4,19 +4,17 @@
 #
 
 ## The Fury of Wormwood
-execute @a[tag =! initialised] ~ ~ ~ scoreboard objectives add ammunition.CAR dummy
-execute @a[tag =! initialised] ~ ~ ~ scoreboard objectives add ammunition.LaPi dummy
-execute @a[tag =! initialised] ~ ~ ~ scoreboard objectives add ammunition.OZT dummy
-execute @a[tag =! initialised] ~ ~ ~ scoreboard objectives add ammunition.LVA dummy
+execute @a[tag =! initialised.FoW] ~ ~ ~ scoreboard objectives add ammunition.CAR dummy
+execute @a[tag =! initialised.FoW] ~ ~ ~ scoreboard objectives add ammunition.LaPi dummy
+execute @a[tag =! initialised.FoW] ~ ~ ~ scoreboard objectives add ammunition.OZT dummy
+execute @a[tag =! initialised.FoW] ~ ~ ~ scoreboard objectives add ammunition.LVA dummy
 
-tag @a add initialised
+tag @a add initialised.FoW
 
-scoreboard players set @a[tag =! initialised] ammunition.CAR 24
-scoreboard players set @a[tag =! initialised] ammunition.LaPi 20
-scoreboard players set @a[tag =! initialised] ammunition.OZT 3
-scoreboard players set @a[tag =! initialised] ammunition.LVA 8
-
-#
+scoreboard players set @a[tag =! initialised.FoW] ammunition.CAR 24
+scoreboard players set @a[tag =! initialised.FoW] ammunition.LaPi 20
+scoreboard players set @a[tag =! initialised.FoW] ammunition.OZT 3
+scoreboard players set @a[tag =! initialised.FoW] ammunition.LVA 8
 
     ## Chinese Assault Rifle ##
 event entity @a[ scores = { ammunition.CAR = 0 } ] modified_player:set_client_flag.chinese_assault_rifle_empty
@@ -37,3 +35,34 @@ event entity @a[ scores = { ammunition.OZT = 1..3 } ] modified_player:set_client
 event entity @a[ scores = { ammunition.LVA = 0 } ] modified_player:set_client_flag.lever_action_rifle_empty
 
 event entity @a[ scores = { ammunition.LVA = 1..8 } ] modified_player:set_client_flag.lever_action_rifle_full
+
+
+## Howling Depths
+## Intend on making all this . . . "Data-Driven", fully configurable and accessible, so that other in-game events and such can influence this without too much of a hassle.
+execute @a[tag=!initialised.HD] ~ ~ ~ scoreboard objectives add mood.timer dummy
+execute @a[tag=!initialised.HD] ~ ~ ~ scoreboard objectives add mood.overlook dummy
+execute @a[tag=!initialised.HD] ~ ~ ~ scoreboard objectives add mood.modifier dummy
+
+scoreboard players set @a[tag=!initialised.HD] mood.timer 2000
+scoreboard players set @a[tag=!initialised.HD] mood.overlook 200
+
+execute @a[ scores = { mood.timer = 1.., mood.overlook = 0 } ] ~ ~ ~ scoreboard players operation @s mood.timer -= @s mood.modifier
+
+scoreboard players set @a[ scores = { mood.timer = ..-1 } ] mood.timer 0
+scoreboard players set @a[ scores = { mood.timer = 2001.. } ] mood.timer 2000
+
+execute @a[ tag=mood.regain, scores = { mood.timer = ..1999 } ] ~ ~ ~ scoreboard players add @s mood.timer 5
+
+execute @a[ scores = { mood.modifier = 1.., mood.overlook = 1.. } ] ~ ~ ~ scoreboard players add @s mood.overlook -1
+
+scoreboard players set @a[ scores = { mood.modifier = ..0 } ] mood.overlook 200
+
+tag @a[ scores = { mood.timer = ..0 } ] add despondent
+
+tag @a[ scores = { mood.timer = 100.. } ] remove despondent
+
+tag @a[ scores = { mood.modifier = 1.. } ] remove mood.regain
+
+
+## General
+tag @a add initialised.HD
