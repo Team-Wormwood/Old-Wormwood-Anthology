@@ -165,6 +165,12 @@
 						},
 						{
 							"attachables.laser_pistol.setup": "variable.is_equipped_laser_pistol"
+						},
+						{
+							"attachables.ozutsu.setup": "variable.is_equipped_ozutsu"
+						},
+						{
+							"attachables.lever_action_rifle.setup": "variable.is_equipped_lever_action_rifle"
 						}
 					]
 				}

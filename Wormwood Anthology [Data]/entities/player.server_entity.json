@@ -66,6 +66,38 @@
 					"value": 3
 				}
 			},
+			//
+			"wormwood:client_flag_ozutsu_firing": {
+				"minecraft:mark_variant": {
+					"value": 3
+				}
+			},
+			"wormwood:client_flag_ozutsu_empty": {
+				"minecraft:variant": {
+					"value": 3
+				}
+			},
+			"wormwood:client_flag_ozutsu_full": {
+				"minecraft:variant": {
+					"value": 4
+				}
+			},
+			//
+			"wormwood:client_flag_lever_action_rifle_firing": {
+				"minecraft:mark_variant": {
+					"value": 4
+				}
+			},
+			"wormwood:client_flag_lever_action_rifle_empty": {
+				"minecraft:variant": {
+					"value": 4
+				}
+			},
+			"wormwood:client_flag_lever_action_rifle_full": {
+				"minecraft:variant": {
+					"value": 5
+				}
+			},
 			// ------------------------ // 
 			//   	  World Beyond         //
 			// ------------------------ // 
@@ -389,6 +421,108 @@
 				"remove": {
 					"component_groups": [
 						"wormwood:client_flag_laser_pistol_firing"
+					]
+				}
+			},
+			//
+			//
+			//
+			"modified_player:set_client_flag.ozutsu_empty": {
+				"add": {
+					"component_groups": [
+						"wormwood:client_flag_ozutsu_empty"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"wormwood:client_flag_ozutsu_full"
+					]
+				}
+			},
+			"modified_player:set_client_flag.ozutsu_full": {
+				"add": {
+					"component_groups": [
+						"wormwood:client_flag_ozutsu_full"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"wormwood:client_flag_ozutsu_empty"
+					]
+				}
+			},
+			"modified_player:add_client_flag.ozutsu": {
+				"add": {
+					"component_groups": [
+						"wormwood:client_flag_ozutsu_firing"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"wormwood:client_flag_default"
+					]
+				}
+			},
+			"modified_player:remove_client_flag.ozutsu": {
+				"add": {
+					"component_groups": [
+						"wormwood:client_flag_default"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"wormwood:client_flag_ozutsu_firing"
+					]
+				}
+			},
+			//
+			//
+			//
+			"modified_player:set_client_flag.lever_action_rifle_empty": {
+				"add": {
+					"component_groups": [
+						"wormwood:client_flag_lever_action_rifle_empty"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"wormwood:client_flag_lever_action_rifle_full"
+					]
+				}
+			},
+			"modified_player:set_client_flag.lever_action_rifle_full": {
+				"add": {
+					"component_groups": [
+						"wormwood:client_flag_lever_action_rifle_full"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"wormwood:client_flag_lever_action_rifle_empty"
+					]
+				}
+			},
+			"modified_player:add_client_flag.lever_action_rifle": {
+				"add": {
+					"component_groups": [
+						"wormwood:client_flag_lever_action_rifle_firing"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"wormwood:client_flag_default"
+					]
+				}
+			},
+			"modified_player:remove_client_flag.lever_action_rifle": {
+				"add": {
+					"component_groups": [
+						"wormwood:client_flag_default"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"wormwood:client_flag_lever_action_rifle_firing"
 					]
 				}
 			},

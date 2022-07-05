@@ -84,6 +84,56 @@
             "is_hurt_color": {
                 "a": 0
             }
+        },
+        "controller.render.player.ozutsu": {
+            "geometry": "geometry.ozutsu",
+            "textures": [
+                "texture.ozutsu"
+            ],
+            "materials": [
+                {
+                    "*": "material.emissive"
+                }
+            ],
+            "part_visibility": [
+                {
+                    "*": true
+                },
+                // {
+                //     "": "query.mark_variant == 3"
+                // },
+                {
+                    "leftItem": false
+                }
+            ],
+            "is_hurt_color": {
+                "a": 0
+            }
+        },
+        "controller.render.player.lever_action_rifle": {
+            "geometry": "geometry.lever_action_rifle",
+            "textures": [
+                "texture.lever_action_rifle"
+            ],
+            "materials": [
+                {
+                    "*": "material.emissive"
+                }
+            ],
+            "part_visibility": [
+                {
+                    "*": true
+                },
+                {
+                    "muzzle_flash": "query.mark_variant == 4"
+                },
+                {
+                    "leftItem": false
+                }
+            ],
+            "is_hurt_color": {
+                "a": 0
+            }
         }
     }
 }

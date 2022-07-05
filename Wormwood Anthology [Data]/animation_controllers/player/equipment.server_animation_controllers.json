@@ -12,6 +12,12 @@
 						},
 						{
 							"laser_pistol.firing": "query.mark_variant == 2"
+						},
+						{
+							"ozutsu.firing": "query.mark_variant == 3"
+						},
+						{
+							"lever_action_rifle.firing": "query.mark_variant == 4"
 						}
 					]
 				},
@@ -28,6 +34,26 @@
 				"laser_pistol.firing": {
 					"on_entry": [
 						"@s modified_player:remove_client_flag.laser_pistol"
+					],
+					"transitions": [
+						{
+							"default": "1"
+						}
+					]
+				},
+				"ozutsu.firing": {
+					"on_entry": [
+						"@s modified_player:remove_client_flag.ozutsu"
+					],
+					"transitions": [
+						{
+							"default": "1"
+						}
+					]
+				},
+				"lever_action_rifle.firing": {
+					"on_entry": [
+						"@s modified_player:remove_client_flag.lever_action_rifle"
 					],
 					"transitions": [
 						{

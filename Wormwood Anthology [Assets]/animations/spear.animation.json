@@ -1,0 +1,104 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.wormwood.player.attachables.spear.wield.first_person": {
+			"loop": true,
+			"bones": {
+				"root": {
+					"rotation": [0, 180, 0]
+				},
+				"rightArm": {
+					"rotation": [-112.5, 0, 0],
+					"position": [0, -9, 0]
+				},
+				"rightItem": {
+					"rotation": [31.31828, 11.79055, -21.7433],
+					"position": [-16, 10, -9.5]
+				}
+			}
+		},
+		"animation.wormwood.player.attachables.spear.wield.third_person": {
+			"loop": true,
+			"bones": {
+				"rightArm": {
+					"rotation": [-35.13226, -14.90781, 3.52378]
+				},
+				"rightItem": {
+					"rotation": [-12.5, 0, 0],
+					"position": [-8, 15, 0]
+				},
+				"waist": {
+					"rotation": [-2.5, 0, 0]
+				},
+				"leftArm": {
+					"rotation": [-58.91444, 21.92612, 35.50599],
+					"position": [0, 0, 1]
+				}
+			}
+		},
+		"animation.wormwood.player.attachables.spear.swing.third_person": {
+			"loop": true,
+			"animation_length": 0.48,
+			"override_previous_animation": true,
+			"bones": {
+				"rightArm": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.08": {
+							"pre": [-45, 15, 0],
+							"post": [-45, 15, 0],
+							"lerp_mode": "catmullrom"
+						},
+						"0.16": {
+							"post": [22.5, 6, 0],
+							"lerp_mode": "catmullrom"
+						},
+						"0.24": [52.5, 0, 0],
+						"0.44": {
+							"pre": [0, 0, 0],
+							"post": [0, 0, 0],
+							"lerp_mode": "catmullrom"
+						}
+					}
+				},
+				"waist": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.04": {
+							"pre": [-10, 15, 0],
+							"post": [-10, 15, 0],
+							"lerp_mode": "catmullrom"
+						},
+						"0.2": {
+							"post": [22.5, -18, 0],
+							"lerp_mode": "catmullrom"
+						},
+						"0.48": {
+							"post": [0, 0, 0],
+							"lerp_mode": "catmullrom"
+						}
+					}
+				},
+				"leftArm": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.04": [15, 22.5, 0],
+						"0.16": [0, 0, -33],
+						"0.44": {
+							"pre": [0, 0, 0],
+							"post": [0, 0, 0],
+							"lerp_mode": "catmullrom"
+						}
+					},
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.04": [0, 2, 0],
+						"0.16": [0, -1, 0],
+						"0.44": [0, 0, 0]
+					}
+				}
+			}
+		}
+	},
+	"geckolib_format_version": 2
+}

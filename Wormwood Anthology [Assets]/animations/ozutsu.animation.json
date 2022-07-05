@@ -1,0 +1,50 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.wormwood.player.attachables.ozutsu.wield.first_person": {
+			"loop": true,
+			"bones": {
+				"ozutsu": {
+					"rotation": [0, -2.5, 0],
+					"position": [-5, 1, -7]
+				},
+				"root": {
+					"rotation": [0, 180, 0]
+				},
+				"leftArm": {
+					"rotation": [-104.35, 37.45817, 1.91699],
+					"position": [-5, -4, -9]
+				},
+				"rightArm": {
+					"rotation": [-84.59039, -22.40972, -2.06754],
+					"position": [-2.5, 1, 5]
+				},
+				"rightItem": {
+					"rotation": [90, 0, 22.5],
+					"position": [-5, -9, -14]
+				}
+			}
+		},
+		"animation.wormwood.player.attachables.ozutsu.wield.third_person": {
+			"loop": true,
+			"bones": {
+				"ozutsu": {
+					"rotation": [0, -2.5, 0],
+					"position": [-5, 1, -7]
+				},
+				"leftArm": {
+					"rotation": [-104.35, 37.45817, 1.91699],
+					"position": [-5, -4, -9]
+				},
+				"rightArm": {
+					"rotation": [-84.59039, -22.40972, -2.06754],
+					"position": [-2.5, 1, 5]
+				},
+				"rightItem": {
+					"rotation": [90, 0, 22.5],
+					"position": [-5, -9, -14]
+				}
+			}
+		}
+	}
+}

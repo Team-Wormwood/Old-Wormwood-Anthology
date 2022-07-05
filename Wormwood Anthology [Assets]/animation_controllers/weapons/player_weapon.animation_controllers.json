@@ -1,0 +1,382 @@
+{
+    "format_version": "1.10.0",
+    "animation_controllers": {
+        // Ranged Weapons //
+        "controller.animation.wormwood.player.attachables.chinese_assault_rifle.setup": {
+            "initial_state": "default",
+            "states": {
+                "default": {
+                    "animations": [
+                        {
+                            "attachables.chinese_assault_rifle.wield.first_person": "variable.is_equipped_chinese_assault_rifle && variable.is_first_person"
+                        },
+                        {
+                            "attachables.chinese_assault_rifle.wield.third_person": "variable.is_equipped_chinese_assault_rifle && !variable.is_first_person"
+                        },
+                        {
+                            "attachables.chinese_assault_rifle.controller": "variable.is_equipped_chinese_assault_rifle"
+                        }
+                    ]
+                }
+            }
+        },
+        "controller.animation.wormwood.player.attachables.chinese_assault_rifle.controller": {
+            "initial_state": "not_holding",
+            "states": {
+                "pre_not_holding": {
+                    "transitions": [
+                        {
+                            "not_holding": "true"
+                        }
+                    ]
+                },
+                "not_holding": {
+                    "transitions": [
+                        {
+                            "wielding": "variable.is_equipped_chinese_assault_rifle"
+                        }
+                    ]
+                },
+                "wielding": {
+                    "transitions": [
+                        {
+                            "pre_not_holding": "!variable.is_equipped_chinese_assault_rifle"
+                        },
+                        {
+                            "shooting": "query.mark_variant == 1"
+                        }
+                    ],
+                    "blend_transition": 0.125
+                },
+                "shooting": {
+                    "on_entry": [
+                        "variable.time = 0;"
+                    ],
+                    "variables": {
+                        "time": {
+                            "input": "variable.time + query.delta_time"
+                        }
+                    },
+                    "animations": [
+                        "attachables.chinese_assault_rifle.shoot"
+                    ],
+                    "blend_transition": 0.6,
+                    "transitions": [
+                        {
+                            "pre_not_holding": "!variable.is_equipped_chinese_assault_rifle"
+                        },
+                        {
+                            "wielding": "query.any_animation_finished ? 1 : query.mark_variant == 0"
+                        }
+                    ],
+                    "sound_effects": [
+                        {
+                            "effect": "chinese_assault_rifle.fire"
+                        }
+                    ]
+                }
+            }
+        },
+        "controller.animation.wormwood.player.attachables.ozutsu.setup": {
+            "initial_state": "default",
+            "states": {
+                "default": {
+                    "animations": [
+                        {
+                            "attachables.ozutsu.wield.first_person": "variable.is_equipped_ozutsu && variable.is_first_person"
+                        },
+                        {
+                            "attachables.ozutsu.wield.third_person": "variable.is_equipped_ozutsu && !variable.is_first_person"
+                        },
+                        {
+                            "attachables.ozutsu.controller": "variable.is_equipped_ozutsu"
+                        }
+                    ]
+                }
+            }
+        },
+        "controller.animation.wormwood.player.attachables.ozutsu.controller": {
+            "initial_state": "not_holding",
+            "states": {
+                "pre_not_holding": {
+                    "transitions": [
+                        {
+                            "not_holding": "true"
+                        }
+                    ]
+                },
+                "not_holding": {
+                    "transitions": [
+                        {
+                            "wielding": "variable.is_equipped_ozutsu"
+                        }
+                    ]
+                },
+                "wielding": {
+                    "transitions": [
+                        {
+                            "pre_not_holding": "!variable.is_equipped_ozutsu"
+                        },
+                        {
+                            "shooting": "query.mark_variant == 3"
+                        }
+                    ],
+                    "blend_transition": 0.125
+                },
+                "shooting": {
+                    "on_entry": [
+                        "variable.time = 0;"
+                    ],
+                    "variables": {
+                        "time": {
+                            "input": "variable.time + query.delta_time"
+                        }
+                    },
+                    "animations": [
+                        "attachables.ozutsu.shoot"
+                    ],
+                    "blend_transition": 0.6,
+                    "transitions": [
+                        {
+                            "pre_not_holding": "!variable.is_equipped_ozutsu"
+                        },
+                        {
+                            "wielding": "query.any_animation_finished ? 1 : query.mark_variant == 0"
+                        }
+                    ],
+                    "sound_effects": [
+                        {
+                            "effect": "ozutsu.fire"
+                        }
+                    ]
+                }
+            }
+        },
+        "controller.animation.wormwood.player.attachables.lever_action_rifle.setup": {
+            "initial_state": "default",
+            "states": {
+                "default": {
+                    "animations": [
+                        {
+                            "attachables.lever_action_rifle.wield.first_person": "variable.is_equipped_lever_action_rifle && variable.is_first_person"
+                        },
+                        {
+                            "attachables.lever_action_rifle.wield.third_person": "variable.is_equipped_lever_action_rifle && !variable.is_first_person"
+                        },
+                        {
+                            "attachables.lever_action_rifle.controller": "variable.is_equipped_lever_action_rifle"
+                        }
+                    ]
+                }
+            }
+        },
+        "controller.animation.wormwood.player.attachables.lever_action_rifle.controller": {
+            "initial_state": "not_holding",
+            "states": {
+                "pre_not_holding": {
+                    "transitions": [
+                        {
+                            "not_holding": "true"
+                        }
+                    ]
+                },
+                "not_holding": {
+                    "transitions": [
+                        {
+                            "wielding": "variable.is_equipped_lever_action_rifle"
+                        }
+                    ]
+                },
+                "wielding": {
+                    "transitions": [
+                        {
+                            "pre_not_holding": "!variable.is_equipped_lever_action_rifle"
+                        },
+                        {
+                            "shooting": "query.mark_variant == 4"
+                        }
+                    ],
+                    "blend_transition": 0.025
+                },
+                "shooting": {
+                    "on_entry": [
+                        "variable.time = 0;"
+                    ],
+                    "variables": {
+                        "time": {
+                            "input": "variable.time + query.delta_time"
+                        }
+                    },
+                    "animations": [
+                        "attachables.lever_action_rifle.shoot"
+                    ],
+                    "blend_transition": 0.1,
+                    "transitions": [
+                        {
+                            "pre_not_holding": "!variable.is_equipped_lever_action_rifle"
+                        },
+                        {
+                            "wielding": "query.any_animation_finished"
+                        }
+                    ],
+                    "sound_effects": [
+                        {
+                            "effect": "lever_action_rifle.fire"
+                        }
+                    ]
+                }
+            }
+        },
+        "controller.animation.wormwood.player.attachables.laser_pistol.setup": {
+            "initial_state": "default",
+            "states": {
+                "default": {
+                    "animations": [
+                        {
+                            "attachables.laser_pistol.wield.first_person": "variable.is_equipped_laser_pistol && variable.is_first_person"
+                        },
+                        {
+                            "attachables.laser_pistol.wield.third_person": "variable.is_equipped_laser_pistol && !variable.is_first_person"
+                        },
+                        {
+                            "attachables.laser_pistol.controller": "variable.is_equipped_laser_pistol"
+                        }
+                    ]
+                }
+            }
+        },
+        "controller.animation.wormwood.player.attachables.laser_pistol.controller": {
+            "initial_state": "not_holding",
+            "states": {
+                "pre_not_holding": {
+                    "transitions": [
+                        {
+                            "not_holding": "true"
+                        }
+                    ]
+                },
+                "not_holding": {
+                    "transitions": [
+                        {
+                            "wielding": "variable.is_equipped_laser_pistol"
+                        }
+                    ]
+                },
+                "wielding": {
+                    "transitions": [
+                        {
+                            "pre_not_holding": "!variable.is_equipped_laser_pistol"
+                        },
+                        {
+                            "shooting": "query.mark_variant == 2"
+                        }
+                    ],
+                    "blend_transition": 0.125
+                },
+                "shooting": {
+                    "on_entry": [
+                        "variable.time = 0;"
+                    ],
+                    "variables": {
+                        "time": {
+                            "input": "variable.time + query.delta_time"
+                        }
+                    },
+                    "animations": [
+                        "attachables.laser_pistol.shoot"
+                    ],
+                    "blend_transition": 0.6,
+                    "transitions": [
+                        {
+                            "pre_not_holding": "!variable.is_equipped_laser_pistol"
+                        },
+                        {
+                            "wielding": "query.any_animation_finished ? 1 : query.mark_variant == 0"
+                        }
+                    ],
+                    "sound_effects": [
+                        {
+                            "effect": "laser_pistol.fire"
+                        }
+                    ]
+                }
+            }
+        },
+        // Melee Weapons
+        "controller.animation.wormwood.player.attachables.spear.setup": {
+            "initial_state": "default",
+            "states": {
+                "default": {
+                    "animations": [
+                        {
+                            "attachables.spear.wield.first_person": "variable.is_equipped_spear && variable.is_first_person"
+                        },
+                        {
+                            "attachables.spear.wield.third_person": "variable.is_equipped_spear && !variable.is_first_person"
+                        },
+                        {
+                            "attachables.spear.controller": "variable.is_equipped_spear"
+                        }
+                    ]
+                }
+            }
+        },
+        "controller.animation.wormwood.player.attachables.spear.controller": {
+            "initial_state": "not_holding",
+            "states": {
+                "pre_not_holding": {
+                    "transitions": [
+                        {
+                            "not_holding": "1"
+                        }
+                    ]
+                },
+                "not_holding": {
+                    "transitions": [
+                        {
+                            "wielding": "variable.is_equipped_spear"
+                        }
+                    ]
+                },
+                "wielding": {
+                    "transitions": [
+                        {
+                            "pre_not_holding": "!variable.is_equipped_spear"
+                        },
+                        {
+                            "swinging": "variable.attack_time > 0.0f"
+                        }
+                    ],
+                    "blend_transition": 0.025
+                },
+                "swinging": {
+                    "on_entry": [
+                        "variable.time = query.life_time;"
+                    ],
+                    "transitions": [
+                        {
+                            "wielding": "query.life_time - variable.time >= 0.48"
+                        },
+                        {
+                            "pre_not_holding": "!variable.is_equipped_spear"
+                        }
+                    ],
+                    "blend_transition": 0.025,
+                    "animations": [
+                        {
+                            "attachables.spear.swing": "variable.is_first_person"
+                        },
+                        {
+                            "attachables.spear.swing": "!variable.is_first_person"
+                        }
+                    ],
+                    "sound_effects": [
+                        {
+                            "effect": "spear.swing"
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}
