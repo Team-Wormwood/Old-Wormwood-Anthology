@@ -1,7 +1,7 @@
 ## Team Wormwood - 2022
 ## Run from [ */tick.json ]
 
-#
+##
 
 ## The Fury of Wormwood
 execute @a[tag =! initialised.FoW] ~ ~ ~ scoreboard objectives add ammunition.CAR dummy
