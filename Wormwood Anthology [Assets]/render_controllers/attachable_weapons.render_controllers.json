@@ -134,6 +134,115 @@
             "is_hurt_color": {
                 "a": 0
             }
+        },
+        "controller.render.player.iron_spear": {
+            "geometry": "geometry.spear_iron",
+            "textures": [
+                "texture.spear_iron"
+            ],
+            "materials": [
+                {
+                    "*": "material.default"
+                }
+            ],
+            "part_visibility": [
+                {
+                    "*": true
+                },
+                {
+                    "body": "!variable.is_first_person"
+                },
+                {
+                    "leftArm": "!variable.is_first_person"
+                },
+                {
+                    "rightArm": "!variable.is_first_person"
+                },
+                {
+                    "leftSleeve": "!variable.is_first_person"
+                },
+                {
+                    "rightSleeve": "!variable.is_first_person"
+                }
+            ],
+            "is_hurt_color": {
+                "a": 0
+            }
+        },
+        "controller.render.player.stone_spear": {
+            "geometry": "geometry.spear_stone",
+            "textures": [
+                "texture.spear_stone"
+            ],
+            "materials": [
+                {
+                    "*": "material.default"
+                }
+            ],
+            "part_visibility": [
+                {
+                    "*": true
+                },
+                {
+                    "body": false
+                },
+                {
+                    "leftItem": false
+                }
+            ],
+            "is_hurt_color": {
+                "a": 0
+            }
+        },
+        "controller.render.player.tiger_spear": {
+            "geometry": "geometry.spear_tiger",
+            "textures": [
+                "texture.spear_tiger"
+            ],
+            "materials": [
+                {
+                    "*": "material.default"
+                }
+            ],
+            "part_visibility": [
+                {
+                    "*": true
+                },
+                {
+                    "body": false
+                },
+                {
+                    "leftItem": false
+                }
+            ],
+            "is_hurt_color": {
+                "a": 0
+            }
+        },
+        "controller.render.player.wooden_spear": {
+            "geometry": "geometry.spear_wooden",
+            "textures": [
+                "texture.spear_wooden"
+            ],
+            "materials": [
+                {
+                    "*": "material.default"
+                }
+            ],
+            "part_visibility": [
+                {
+                    "*": true
+                },
+                {
+                    "body": false
+                },
+                {
+                    "leftItem": false
+                }
+            ],
+            "is_hurt_color": {
+                "a": 0
+            }
         }
     }
 }

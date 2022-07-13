@@ -1,0 +1,14 @@
+{
+    "format_version": "1.10.0",
+    "animations": {
+     
+        "animation.chinese_assault_rifle.reloading": {
+            "loop": "hold_on_last_frame",
+            "timeline": {
+                "2.92": [
+                    "@s modified_player:set_client_flag.chinese_assault_rifle_full"
+                ]
+            }
+        }
+    }
+}

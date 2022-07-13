@@ -18,6 +18,10 @@
 				"laser_pistol": "geometry.laser_pistol",
 				"ozutsu": "geometry.ozutsu",
 				"lever_action_rifle": "geometry.lever_action_rifle",
+				"spear_wooden": "geometry.wooden_spear",
+				"spear_stone": "geometry.stone_spear",
+				"spear_iron": "geometry.iron_spear",
+				"spear_tiger": "geometry.tiger_claw_spear",
 				// Vanilla Models //
 				"default": "geometry.humanoid.custom",
 				"cape": "geometry.cape"
@@ -31,16 +35,25 @@
 				"laser_pistol": "textures/attachables/laser_pistol",
 				"ozutsu": "textures/attachables/ozutsu",
 				"lever_action_rifle": "textures/attachables/lever_action_rifle",
+				"spear_wooden": "textures/attachables/wooden_spear",
+				"spear_stone": "textures/attachables/stone_spear",
+				"spear_iron": "textures/attachables/iron_spear",
+				"spear_tiger": "textures/attachables/tiger_claw_spear",
 				// Vanilla Textures //
 				"default": "textures/entity/steve",
 				"cape": "textures/entity/cape_invisible"
 			},
+			"particle_effects": {
+				"gun_sparks": "wormwood:sparks"
+			},
 			"sound_effects": {
 				"chinese_assault_rifle.fire": "weapon.chinese_assault_rifle.fire",
+				"chinese_assault_rifle.reload": "weapon.chinese_assault_rifle.reload",
 				"laser_pistol.fire": "weapon.laser_pistol.fire",
 				"ozutsu.fire": "weapon.chinese_assault_rifle.fire",
 				"lever_action_rifle.fire": "weapon.lever_action_rifle.fire",
-				"lever_action_rifle.reload": "weapon.lever_action_rifle.reload"
+				"lever_action_rifle.reload": "weapon.lever_action_rifle.reload",
+				"spear.swing": "entity.player.attack.sweep"
 			},
 			"scripts": {
 				"initialize": [
@@ -59,7 +72,13 @@
 					"variable.is_equipped_chinese_assault_rifle = query.is_on_screen ? query.is_item_name_any('slot.weapon.mainhand', 'wormwood:chinese_assault_rifle');",
 					"variable.is_equipped_ozutsu = query.is_on_screen ? query.is_item_name_any('slot.weapon.mainhand', 'wormwood:ozutsu');",
 					"variable.is_equipped_lever_action_rifle = query.is_on_screen ? query.is_item_name_any('slot.weapon.mainhand', 'wormwood:lever_action_rifle');",
-					"variable.is_equipped_spear = query.is_on_screen ? query.equipped_item_any_tag('slot.weapon.mainhand', 'wormwood:spear_weapon');",
+					
+					"variable.is_equipped_wooden_spear = query.is_on_screen ? query.is_item_name_any('slot.weapon.mainhand', 'wormwood:wooden_spear');",
+					"variable.is_equipped_stone_spear = query.is_on_screen ? query.is_item_name_any('slot.weapon.mainhand', 'wormwood:stone_spear');",
+					"variable.is_equipped_iron_spear = query.is_on_screen ? query.is_item_name_any('slot.weapon.mainhand', 'wormwood:iron_spear');",
+					"variable.is_equipped_tiger_spear = query.is_on_screen ? query.is_item_name_any('slot.weapon.mainhand', 'wormwood:tiger_claw_spear');",
+
+					"variable.is_equipped_any_spear = query.is_on_screen ? query.equipped_item_any_tag('slot.weapon.mainhand', 'wormwood:spear_weapon');",
 					"variable.is_equipped_any_attachable_weapon = query.is_on_screen ? query.equipped_item_any_tag('slot.weapon.mainhand', 'wormwood:attachable_weapon');",
 					//
 					"variable.should_render_in_hud = !query.is_riding && !query.is_gliding && query.is_alive && query.is_in_ui && !variable.map_face_icon;",
@@ -100,6 +119,7 @@
 				"attachables.chinese_assault_rifle.wield.first_person": "animation.wormwood.player.attachables.chinese_assault_rifle.wield.first_person",
 				"attachables.chinese_assault_rifle.wield.third_person": "animation.wormwood.player.attachables.chinese_assault_rifle.wield.third_person",
 				"attachables.chinese_assault_rifle.shoot": "animation.wormwood.player.attachables.chinese_assault_rifle.shoot",
+				"attachables.chinese_assault_rifle.reload": "animation.wormwood.player.attachables.chinese_assault_rifle.reload",
 				//
 				"attachables.laser_pistol.setup": "controller.animation.wormwood.player.attachables.laser_pistol.setup",
 				"attachables.laser_pistol.controller": "controller.animation.wormwood.player.attachables.laser_pistol.controller",
@@ -123,7 +143,8 @@
 				"attachables.spear.controller": "controller.animation.wormwood.player.attachables.spear.controller",
 				"attachables.spear.wield.first_person": "animation.wormwood.player.attachables.spear.wield.first_person",
 				"attachables.spear.wield.third_person": "animation.wormwood.player.attachables.spear.wield.third_person",
-				"attachables.spear.swing": "animation.wormwood.player.attachables.spear.swing",
+				"attachables.spear.swing.first_person": "animation.wormwood.player.attachables.spear.swing.first_person",
+				"attachables.spear.swing.third_person": "animation.wormwood.player.attachables.spear.swing.third_person",
 				// Modified Animations //
 				"modified_root": "controller.animation.player.modified_root",
 				"attachable_root": "controller.animation.player.attachable_root",
@@ -193,6 +214,18 @@
 				},
 				{
 					"controller.render.player.lever_action_rifle": "variable.is_equipped_lever_action_rifle"
+				},
+				{
+					"controller.render.player.wooden_spear": "variable.is_equipped_wooden_spear"
+				},
+				{
+					"controller.render.player.stone_spear": "variable.is_equipped_stone_spear"
+				},
+				{
+					"controller.render.player.iron_spear": "variable.is_equipped_iron_spear"
+				},
+				{
+					"controller.render.player.tiger_spear": "variable.is_equipped_tiger_spear"
 				},
 				{
 					"controller.render.player.advancements_ui": "variable.should_render_in_hud && variable.advancements_fade_motion < 649.0f"

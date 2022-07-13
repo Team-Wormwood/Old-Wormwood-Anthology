@@ -233,19 +233,14 @@
 			"bones": {
 				"lever_action_rifle": {
 					"rotation": [90, 0, -5],
-					"position": [-5.25, 11, 0.33],
-					"scale": 0.88
+					"position": [-3.75, 11, -0.67],
+					"scale": 1
 				},
 				"leftArm": {
-					"rotation": [-85.7643, 41.26755, 11.21792],
-					"position": [-4, 0, -1]
+					"rotation": ["-90.0 + query.target_x_rotation - query.is_sneaking * 15.0 - this", "27.5 + query.target_y_rotation", 0]
 				},
 				"rightArm": {
-					"rotation": [-90, 0, 0],
-					"position": [0, -1, 4]
-				},
-				"rightItem": {
-					"position": [0, -2, 0]
+					"rotation": ["-90.0 + query.target_x_rotation - query.is_sneaking * 15.0 - this", "-5.0 + query.target_y_rotation", 0]
 				}
 			}
 		}
