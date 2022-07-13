@@ -1,7 +1,7 @@
 ## Team Wormwood - 2022
 ## Run from [ */tick.json ]
 
-#
+##
 
 ## The Fury of Wormwood
 execute @a[tag =! initialised.FoW] ~ ~ ~ scoreboard objectives add ammunition.CAR dummy
@@ -38,11 +38,14 @@ event entity @a[ scores = { ammunition.LVA = 1..8 } ] modified_player:set_client
 
 
 ## Howling Depths
-## Intend on making all this . . . "Data-Driven", fully configurable and accessible, so that other in-game events and such can influence this without too much of a hassle.
 execute @a[tag=!initialised.HD] ~ ~ ~ scoreboard objectives add mood.timer dummy
 execute @a[tag=!initialised.HD] ~ ~ ~ scoreboard objectives add mood.overlook dummy
 execute @a[tag=!initialised.HD] ~ ~ ~ scoreboard objectives add mood.modifier dummy
 
+tag @a add initialised.HD
+
+    ## "Mood" ##
+    ## Intend on making all this . . . "Data-Driven", fully configurable and accessible, so that other in-game events and such can influence this without too much of a hassle.
 scoreboard players set @a[tag=!initialised.HD] mood.timer 2000
 scoreboard players set @a[tag=!initialised.HD] mood.overlook 200
 
@@ -65,4 +68,17 @@ tag @a[ scores = { mood.modifier = 1.. } ] remove mood.regain
 
 
 ## General
-tag @a add initialised.HD
+execute @a[tag=!initialised.general] ~ ~ ~ scoreboard objectives add cassette.num dummy
+execute @a[tag=!initialised.general] ~ ~ ~ scoreboard objectives add hasitem dummy
+
+tag @a[tag=!initialised.general] add initialised.general
+
+    ## Tape Player ##
+    ## `hasitem=!{...}` throws up errors, so have to use this mess as a workaround. Scoreboards.
+scoreboard players set @a[hasitem={item=wormwood:tape_player,location=slot.weapon.offhand}] hasitem 2
+
+scoreboard players add @a[ scores = { hasitem = 1.. } ] hasitem -1
+
+execute @a[ scores = { hasitem = 0 }, tag=cassette.playing ] ~ ~ ~ function cassettes.return
+
+tag @a[ scores = { hasitem = 0 }, tag=cassette.playing ] remove cassette.playing
