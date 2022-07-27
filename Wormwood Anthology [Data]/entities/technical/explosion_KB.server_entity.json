@@ -5,6 +5,11 @@
             "identifier": "wormwood:knockback_explosion",
             "is_summonable": true
         },
+        "component_groups": {
+            "wormwood:instant_despawn": {
+                "minecraft:instant_despawn": {}
+            }
+        },
         "components": {
             "minecraft:type_family": {
                 "family": [
@@ -16,28 +21,31 @@
                 "height": 0.0
             },
             "minecraft:behavior.knockback_roar": {
-                "attack_time": 0.0,
-                "duration": 0.33,
-                "knockback_damage": 2,
-                "knockback_horizontal_strength": 4,
-                "knockback_range": 4,
-                "knockback_vertical_strength": 4,
-                "knockback_strength": 4
+                "knockback_horizontal_strength": 5,
+                "knockback_vertical_strength": 2,
+                "knockback_strength": 6,
+                "knockback_range": 5,
+                "knockback_damage": 6,
+                "attack_time": 0.1,
+                "duration": 1,
+                "on_roar_end": {
+                    "event": "despawn"
+                }
             },
-            "minecraft:explode": {
-                "breaks_blocks": true,
-                "causes_fire": true,
-                "destroy_affected_by_griefing": true,
-                "fire_affected_by_griefing": true,
-                "fuse_lit": true,
-                "fuse_length": [
-                    0.01,
-                    0.01
-                ],
-                "power": 2.36171
-            },
+            // "minecraft:explode": {
+            //     "breaks_blocks": true,
+            //     "causes_fire": false,
+            //     "destroy_affected_by_griefing": true,
+            //     "fire_affected_by_griefing": true,
+            //     "fuse_lit": true,
+            //     "fuse_length": [
+            //         0.34,
+            //         0.34
+            //     ],
+            //     "power": 2.36171
+            // },
             "minecraft:physics": {
-                "has_collision": false,
+                "has_collision": true,
                 "has_gravity": false
             },
             "minecraft:conditional_bandwidth_optimization": {
@@ -48,7 +56,14 @@
                 }
             }
         },
-        "component_groups": {},
-        "events": {}
+        "events": {
+            "despawn": {
+                "add": {
+                    "component_groups": [
+                        "wormwood:instant_despawn"
+                    ]
+                }
+            }
+        }
     }
 }

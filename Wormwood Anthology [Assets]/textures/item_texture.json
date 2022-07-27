@@ -1,0 +1,9 @@
+{
+    "resource_pack_name": "vanilla",
+    "texture_data": {
+        "the_device": {
+            "textures": "textures/items/device"
+        }
+    },
+    "texture_name": "atlas.items"
+}

@@ -1,0 +1,191 @@
+{
+    "format_version": "1.16.100",
+    "minecraft:item": {
+        "description": {
+            "identifier": "wormwood:development_fish",
+            "category": "Commands"
+        },
+        "components": {
+            "minecraft:max_stack_size": 25,
+            "minecraft:use_duration": 2305278,
+            "minecraft:hand_equipped": true,
+            "minecraft:weapon": {},
+            "minecraft:display_name": {
+                "value": "The Holy Salmon of Raw Power"
+            },
+            "minecraft:projectile": {
+                "projectile_entity": "minecraft:fireball"
+            },
+            "minecraft:icon": {
+                "texture": "salmon"
+            },
+            "minecraft:on_use": {
+                "on_use": {
+                    "event": "fishy:itemUsed"
+                }
+            }
+        },
+        "events": {
+            "fishy:itemUsed": {
+                "sequence": [
+                    {
+                        "shoot": {
+                            "projectile": "minecraft:fireball",
+                            "launch_power": 1
+                        }
+                    },
+                    {
+                        "shoot": {
+                            "projectile": "minecraft:fireball",
+                            "launch_power": 1
+                        }
+                    },
+                    {
+                        "shoot": {
+                            "projectile": "minecraft:fireball",
+                            "launch_power": 1
+                        }
+                    },
+                    {
+                        "shoot": {
+                            "projectile": "minecraft:fireball",
+                            "launch_power": 1
+                        }
+                    },
+                    {
+                        "shoot": {
+                            "projectile": "minecraft:fireball",
+                            "launch_power": 1
+                        }
+                    },
+                    {
+                        "shoot": {
+                            "projectile": "minecraft:fireball",
+                            "launch_power": 1
+                        }
+                    },
+                    {
+                        "shoot": {
+                            "projectile": "minecraft:fireball",
+                            "launch_power": 1
+                        }
+                    },
+                    {
+                        "shoot": {
+                            "projectile": "minecraft:fireball",
+                            "launch_power": 1
+                        }
+                    },
+                    {
+                        "shoot": {
+                            "projectile": "minecraft:fireball",
+                            "launch_power": 1
+                        }
+                    },
+                    {
+                        "shoot": {
+                            "projectile": "minecraft:fireball",
+                            "launch_power": 1
+                        }
+                    },
+                    {
+                        "shoot": {
+                            "projectile": "minecraft:fireball",
+                            "launch_power": 1
+                        }
+                    },
+                    {
+                        "shoot": {
+                            "projectile": "minecraft:fireball",
+                            "launch_power": 1
+                        }
+                    },
+                    {
+                        "shoot": {
+                            "projectile": "minecraft:fireball",
+                            "launch_power": 1
+                        }
+                    },
+                    {
+                        "shoot": {
+                            "projectile": "minecraft:fireball",
+                            "launch_power": 1
+                        }
+                    },
+                    {
+                        "shoot": {
+                            "projectile": "minecraft:fireball",
+                            "launch_power": 1
+                        }
+                    },
+                    {
+                        "shoot": {
+                            "projectile": "minecraft:fireball",
+                            "launch_power": 1
+                        }
+                    },
+                    {
+                        "shoot": {
+                            "projectile": "minecraft:fireball",
+                            "launch_power": 1
+                        }
+                    },
+                    {
+                        "shoot": {
+                            "projectile": "minecraft:fireball",
+                            "launch_power": 1
+                        }
+                    },
+                    {
+                        "shoot": {
+                            "projectile": "minecraft:fireball",
+                            "launch_power": 1
+                        }
+                    },
+                    {
+                        "shoot": {
+                            "projectile": "minecraft:fireball",
+                            "launch_power": 1
+                        }
+                    },
+                    {
+                        "shoot": {
+                            "projectile": "minecraft:fireball",
+                            "launch_power": 1
+                        }
+                    },
+                    {
+                        "shoot": {
+                            "projectile": "minecraft:fireball",
+                            "launch_power": 1
+                        }
+                    },
+                    {
+                        "shoot": {
+                            "projectile": "minecraft:fireball",
+                            "launch_power": 1
+                        }
+                    },
+                    {
+                        "shoot": {
+                            "projectile": "minecraft:fireball",
+                            "launch_power": 1
+                        }
+                    },
+                    {
+                        "shoot": {
+                            "projectile": "minecraft:fireball",
+                            "launch_power": 1
+                        }
+                    },
+                    {
+                        "shoot": {
+                            "projectile": "minecraft:fireball",
+                            "launch_power": 1
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}

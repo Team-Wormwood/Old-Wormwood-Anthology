@@ -131,7 +131,7 @@
 				"attachables.ozutsu.controller": "controller.animation.wormwood.player.attachables.ozutsu.controller",
 				"attachables.ozutsu.wield.first_person": "animation.wormwood.player.attachables.ozutsu.wield.first_person",
 				"attachables.ozutsu.wield.third_person": "animation.wormwood.player.attachables.ozutsu.wield.third_person",
-				"attachables.ozutsu.shoot": "animation.wormwood.player.attachables.ozutsu.shoot",
+				"attachables.ozutsu.shoot": "animation.wormwood.player.attachables.lever_action_rifle.shoot",
 				//
 				"attachables.lever_action_rifle.setup": "controller.animation.wormwood.player.attachables.lever_action_rifle.setup",
 				"attachables.lever_action_rifle.controller": "controller.animation.wormwood.player.attachables.lever_action_rifle.controller",

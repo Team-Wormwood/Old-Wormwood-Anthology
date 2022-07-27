@@ -309,13 +309,13 @@
                 "default": {
                     "animations": [
                         {
-                            "attachables.spear.wield.first_person": "variable.is_equipped_spear && variable.is_first_person"
+                            "attachables.spear.wield.first_person": "variable.is_equipped_any_spear && variable.is_first_person"
                         },
                         {
-                            "attachables.spear.wield.third_person": "variable.is_equipped_spear && !variable.is_first_person"
+                            "attachables.spear.wield.third_person": "variable.is_equipped_any_spear && !variable.is_first_person"
                         },
                         {
-                            "attachables.spear.controller": "variable.is_equipped_spear"
+                            "attachables.spear.controller": "variable.is_equipped_any_spear"
                         }
                     ]
                 }
@@ -334,14 +334,14 @@
                 "not_holding": {
                     "transitions": [
                         {
-                            "wielding": "variable.is_equipped_spear"
+                            "wielding": "variable.is_equipped_any_spear"
                         }
                     ]
                 },
                 "wielding": {
                     "transitions": [
                         {
-                            "pre_not_holding": "!variable.is_equipped_spear"
+                            "pre_not_holding": "!variable.is_equipped_any_spear"
                         },
                         {
                             "swinging": "variable.attack_time > 0.0f"
@@ -358,16 +358,16 @@
                             "wielding": "query.life_time - variable.time >= 0.48"
                         },
                         {
-                            "pre_not_holding": "!variable.is_equipped_spear"
+                            "pre_not_holding": "!variable.is_equipped_any_spear"
                         }
                     ],
-                    "blend_transition": 0.025,
+                    "blend_transition": 0.1,
                     "animations": [
                         {
-                            "attachables.spear.swing": "variable.is_first_person"
+                            "attachables.spear.swing.first_person": "variable.is_first_person"
                         },
                         {
-                            "attachables.spear.swing": "!variable.is_first_person"
+                            "attachables.spear.swing.third_person": "!variable.is_first_person"
                         }
                     ],
                     "sound_effects": [
