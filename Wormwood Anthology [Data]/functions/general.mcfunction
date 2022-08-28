@@ -8,6 +8,7 @@ execute @a[tag =! initialised.FoW] ~ ~ ~ scoreboard objectives add ammunition.CA
 execute @a[tag =! initialised.FoW] ~ ~ ~ scoreboard objectives add ammunition.LaPi dummy
 execute @a[tag =! initialised.FoW] ~ ~ ~ scoreboard objectives add ammunition.OZT dummy
 execute @a[tag =! initialised.FoW] ~ ~ ~ scoreboard objectives add ammunition.LVA dummy
+execute @a[tag =! initialised.FoW] ~ ~ ~ scoreboard objectives add ammunition.COL dummy
 
 tag @a add initialised.FoW
 
@@ -15,6 +16,7 @@ scoreboard players set @a[tag =! initialised.FoW] ammunition.CAR 24
 scoreboard players set @a[tag =! initialised.FoW] ammunition.LaPi 20
 scoreboard players set @a[tag =! initialised.FoW] ammunition.OZT 3
 scoreboard players set @a[tag =! initialised.FoW] ammunition.LVA 8
+scoreboard players set @a[tag =! initialised.FoW] ammunition.COL 6
 
     ## Chinese Assault Rifle ##
 event entity @a[ scores = { ammunition.CAR = 0 } ] modified_player:set_client_flag.chinese_assault_rifle_empty
@@ -35,6 +37,11 @@ event entity @a[ scores = { ammunition.OZT = 1..3 } ] modified_player:set_client
 event entity @a[ scores = { ammunition.LVA = 0 } ] modified_player:set_client_flag.lever_action_rifle_empty
 
 event entity @a[ scores = { ammunition.LVA = 1..8 } ] modified_player:set_client_flag.lever_action_rifle_full
+
+    ## Colt ##
+event entity @a[ scores = { ammunition.COL = 0 } ] modified_player:set_client_flag.colt_empty
+
+event entity @a[ scores = { ammunition.COL = 1..6 } ] modified_player:set_client_flag.colt_full
 
 
 ## Howling Depths

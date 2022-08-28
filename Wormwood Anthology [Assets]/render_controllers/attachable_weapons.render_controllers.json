@@ -29,6 +29,21 @@
                 }
             ]
         },
+        "controller.render.bullet": {
+            "ignore_lighting": true,
+            "geometry": "geometry.default",
+            "textures": [
+                "texture.default"
+            ],
+            "materials": [
+                {
+                    "*": "material.default"
+                }
+            ],
+            "is_hurt_color": {
+                "a": 0
+            }
+        },
         "controller.render.player.chinese_assault_rifle": {
             "geometry": "geometry.chinese_assault_rifle",
             "textures": [
@@ -126,6 +141,31 @@
                 },
                 {
                     "muzzle_flash": "query.mark_variant == 4"
+                },
+                {
+                    "leftItem": false
+                }
+            ],
+            "is_hurt_color": {
+                "a": 0
+            }
+        },
+        "controller.render.player.colt": {
+            "geometry": "geometry.colt",
+            "textures": [
+                "texture.colt"
+            ],
+            "materials": [
+                {
+                    "*": "material.emissive"
+                }
+            ],
+            "part_visibility": [
+                {
+                    "*": true
+                },
+                {
+                    "muzzle_flash": "query.mark_variant == 5"
                 },
                 {
                     "leftItem": false

@@ -18,6 +18,7 @@
 				"laser_pistol": "geometry.laser_pistol",
 				"ozutsu": "geometry.ozutsu",
 				"lever_action_rifle": "geometry.lever_action_rifle",
+				"colt": "geometry.colt",
 				"spear_wooden": "geometry.wooden_spear",
 				"spear_stone": "geometry.stone_spear",
 				"spear_iron": "geometry.iron_spear",
@@ -30,11 +31,13 @@
 				// Advancements Textures //
 				"advancement.feet_wet": "textures/ui/advancements/feet_wet",
 				"advancement.adventuring_journey": "textures/ui/advancements/adventuring_journey",
+				"advancement.cross_fox": "textures/ui/advancements/cross_fox",
 				// Attachable Weapons Textures //
 				"chinese_assault_rifle": "textures/attachables/chinese_assault_rifle",
 				"laser_pistol": "textures/attachables/laser_pistol",
 				"ozutsu": "textures/attachables/ozutsu",
 				"lever_action_rifle": "textures/attachables/lever_action_rifle",
+				"colt": "textures/attachables/colt",
 				"spear_wooden": "textures/attachables/wooden_spear",
 				"spear_stone": "textures/attachables/stone_spear",
 				"spear_iron": "textures/attachables/iron_spear",
@@ -53,6 +56,7 @@
 				"ozutsu.fire": "weapon.chinese_assault_rifle.fire",
 				"lever_action_rifle.fire": "weapon.lever_action_rifle.fire",
 				"lever_action_rifle.reload": "weapon.lever_action_rifle.reload",
+				"colt.fire": "weapon.colt.fire",
 				"spear.swing": "entity.player.attack.sweep"
 			},
 			"scripts": {
@@ -68,20 +72,20 @@
 				],
 				"pre_animation": [
 					// Custom-Made Variables // 
+					"variable.should_render_attachable_weapon = query.life_time >= 0.25;",
 					"variable.is_equipped_laser_pistol = query.is_on_screen ? query.is_item_name_any('slot.weapon.mainhand', 'wormwood:laser_pistol');",
 					"variable.is_equipped_chinese_assault_rifle = query.is_on_screen ? query.is_item_name_any('slot.weapon.mainhand', 'wormwood:chinese_assault_rifle');",
 					"variable.is_equipped_ozutsu = query.is_on_screen ? query.is_item_name_any('slot.weapon.mainhand', 'wormwood:ozutsu');",
 					"variable.is_equipped_lever_action_rifle = query.is_on_screen ? query.is_item_name_any('slot.weapon.mainhand', 'wormwood:lever_action_rifle');",
-					
+					"variable.is_equipped_colt = query.is_on_screen ? query.is_item_name_any('slot.weapon.mainhand', 'wormwood:colt');",
 					"variable.is_equipped_wooden_spear = query.is_on_screen ? query.is_item_name_any('slot.weapon.mainhand', 'wormwood:wooden_spear');",
 					"variable.is_equipped_stone_spear = query.is_on_screen ? query.is_item_name_any('slot.weapon.mainhand', 'wormwood:stone_spear');",
 					"variable.is_equipped_iron_spear = query.is_on_screen ? query.is_item_name_any('slot.weapon.mainhand', 'wormwood:iron_spear');",
 					"variable.is_equipped_tiger_spear = query.is_on_screen ? query.is_item_name_any('slot.weapon.mainhand', 'wormwood:tiger_claw_spear');",
-
 					"variable.is_equipped_any_spear = query.is_on_screen ? query.equipped_item_any_tag('slot.weapon.mainhand', 'wormwood:spear_weapon');",
 					"variable.is_equipped_any_attachable_weapon = query.is_on_screen ? query.equipped_item_any_tag('slot.weapon.mainhand', 'wormwood:attachable_weapon');",
 					//
-					"variable.should_render_in_hud = !query.is_riding && !query.is_gliding && query.is_alive && query.is_in_ui && !variable.map_face_icon;",
+					"variable.should_render_in_hud = !query.is_riding && !query.is_gliding && query.is_alive && query.is_in_ui && !query.is_spectator && !variable.map_face_icon;",
 					"variable.fixed_arm_positions = query.is_on_screen ? variable.is_equipped_any_attachable_weapon;",
 					"temp.distance = ( query.skin_id > 0 ) ? 0 : 500; temp.fade_speed = 0.33; temp.fade_amount = 0.5; temp.delta_time = variable.is_first_person ? query.delta_time : query.last_frame_time; variable.advancements_fade_motion = variable.advancements_fade_motion + ( temp.distance - variable.advancements_fade_motion ) * ( 1 - math.pow( temp.fade_speed , temp.delta_time / temp.fade_amount ) );",
 					// Vanilla Variables // 
@@ -139,6 +143,12 @@
 				"attachables.lever_action_rifle.wield.third_person": "animation.wormwood.player.attachables.lever_action_rifle.wield.third_person",
 				"attachables.lever_action_rifle.shoot": "animation.wormwood.player.attachables.lever_action_rifle.shoot",
 				//
+				"attachables.colt.setup": "controller.animation.wormwood.player.attachables.colt.setup",
+				"attachables.colt.controller": "controller.animation.wormwood.player.attachables.colt.controller",
+				"attachables.colt.wield.first_person": "animation.wormwood.player.attachables.colt.wield.first_person",
+				"attachables.colt.wield.third_person": "animation.wormwood.player.attachables.colt.wield.third_person",
+				"attachables.colt.shoot": "animation.wormwood.player.attachables.colt.shoot",
+				//
 				"attachables.spear.setup": "controller.animation.wormwood.player.attachables.spear.setup",
 				"attachables.spear.controller": "controller.animation.wormwood.player.attachables.spear.controller",
 				"attachables.spear.wield.first_person": "animation.wormwood.player.attachables.spear.wield.first_person",
@@ -148,46 +158,24 @@
 				// Modified Animations //
 				"modified_root": "controller.animation.player.modified_root",
 				"attachable_root": "controller.animation.player.attachable_root",
-				// Vanilla Animations //
-				"root": "controller.animation.player.root",
+				// Vanilla Controllers //
+				"first_person_attack_controller": "controller.animation.player.first_person_attack",
+				"first_person_map_controller": "controller.animation.player.first_person_map",
+				"look_at_target": "controller.animation.humanoid.look_at_target",
+				"crossbow_controller": "controller.animation.player.crossbow",
+				"humanoid_base_pose": "animation.humanoid.base_pose",
 				"base_controller": "controller.animation.player.base",
 				"hudplayer": "controller.animation.player.hudplayer",
-				"humanoid_base_pose": "animation.humanoid.base_pose",
-				"look_at_target": "controller.animation.humanoid.look_at_target",
-				"look_at_target_ui": "animation.player.look_at_target.ui",
-				"look_at_target_default": "animation.humanoid.look_at_target.default",
-				"look_at_target_gliding": "animation.humanoid.look_at_target.gliding",
-				"look_at_target_swimming": "animation.humanoid.look_at_target.swimming",
-				"look_at_target_inverted": "animation.player.look_at_target.inverted",
-				"cape": "animation.player.cape",
-				"move.arms": "animation.player.move.arms",
-				"move.legs": "animation.player.move.legs",
-				"swimming": "animation.player.swim",
-				"swimming.legs": "animation.player.swim.legs",
-				"riding.arms": "animation.player.riding.arms",
-				"riding.legs": "animation.player.riding.legs",
-				"holding": "animation.player.holding",
-				"brandish_spear": "animation.humanoid.brandish_spear",
-				"holding_spyglass": "animation.humanoid.holding_spyglass",
-				"charging": "animation.humanoid.charging",
-				"attack.positions": "animation.player.attack.positions",
-				"attack.rotations": "animation.player.attack.rotations",
-				"sneaking": "animation.player.sneaking",
-				"bob": "animation.player.bob",
-				"damage_nearby_mobs": "animation.humanoid.damage_nearby_mobs",
-				"bow_and_arrow": "animation.humanoid.bow_and_arrow",
-				"use_item_progress": "animation.humanoid.use_item_progress",
-				"skeleton_attack": "animation.skeleton.attack",
-				"sleeping": "animation.player.sleeping",
+				"blink": "controller.animation.persona.blink",
+				"root": "controller.animation.player.root",
+				// Vanilla Animations //
 				"first_person_base_pose": "animation.player.first_person.base_pose",
 				"first_person_empty_hand": "animation.player.first_person.empty_hand",
 				"first_person_swap_item": "animation.player.first_person.swap_item",
 				"first_person_shield_block": "animation.player.first_person.shield_block",
-				"first_person_attack_controller": "controller.animation.player.first_person_attack",
 				"first_person_attack_rotation": "animation.player.first_person.attack_rotation",
 				"first_person_vr_attack_rotation": "animation.player.first_person.vr_attack_rotation",
 				"first_person_walk": "animation.player.first_person.walk",
-				"first_person_map_controller": "controller.animation.player.first_person_map",
 				"first_person_map_hold": "animation.player.first_person.map_hold",
 				"first_person_map_hold_attack": "animation.player.first_person.map_hold_attack",
 				"first_person_map_hold_off_hand": "animation.player.first_person.map_hold_off_hand",
@@ -195,48 +183,83 @@
 				"first_person_crossbow_equipped": "animation.player.first_person.crossbow_equipped",
 				"third_person_crossbow_equipped": "animation.player.crossbow_equipped",
 				"third_person_bow_equipped": "animation.player.bow_equipped",
-				"crossbow_hold": "animation.player.crossbow_hold",
-				"crossbow_controller": "controller.animation.player.crossbow",
+				//
+				"look_at_target_ui": "animation.player.look_at_target.ui",
+				"look_at_target_default": "animation.humanoid.look_at_target.default",
+				"look_at_target_gliding": "animation.humanoid.look_at_target.gliding",
+				"look_at_target_swimming": "animation.humanoid.look_at_target.swimming",
+				"look_at_target_inverted": "animation.player.look_at_target.inverted",
+				//
 				"shield_block_main_hand": "animation.player.shield_block_main_hand",
 				"shield_block_off_hand": "animation.player.shield_block_off_hand",
-				"blink": "controller.animation.persona.blink"
+				"attack.positions": "animation.player.attack.positions",
+				"attack.rotations": "animation.player.attack.rotations",
+				"move.arms": "animation.player.move.arms",
+				"move.legs": "animation.player.move.legs",
+				"swimming": "animation.player.swim",
+				"swimming.legs": "animation.player.swim.legs",
+				"riding.arms": "animation.player.riding.arms",
+				"riding.legs": "animation.player.riding.legs",
+				"cape": "animation.player.cape",
+				"holding": "animation.player.holding",
+				"brandish_spear": "animation.humanoid.brandish_spear",
+				"holding_spyglass": "animation.humanoid.holding_spyglass",
+				"charging": "animation.humanoid.charging",
+				"sneaking": "animation.player.sneaking",
+				"bob": "animation.player.bob",
+				"damage_nearby_mobs": "animation.humanoid.damage_nearby_mobs",
+				"bow_and_arrow": "animation.humanoid.bow_and_arrow",
+				"use_item_progress": "animation.humanoid.use_item_progress",
+				"skeleton_attack": "animation.skeleton.attack",
+				"sleeping": "animation.player.sleeping",
+				"crossbow_hold": "animation.player.crossbow_hold",
+				"tooting_goat_horn": "animation.humanoid.tooting_goat_horn"
 			},
 			"render_controllers": [
 				// Custom-Made Render Controllers //
 				{
-					"controller.render.player.chinese_assault_rifle": "variable.is_equipped_chinese_assault_rifle"
+					"controller.render.player.chinese_assault_rifle": "variable.is_equipped_chinese_assault_rifle && variable.should_render_attachable_weapon"
 				},
 				{
-					"controller.render.player.laser_pistol": "variable.is_equipped_laser_pistol"
+					"controller.render.player.laser_pistol": "variable.is_equipped_laser_pistol && variable.should_render_attachable_weapon"
 				},
 				{
-					"controller.render.player.ozutsu": "variable.is_equipped_ozutsu"
+					"controller.render.player.ozutsu": "variable.is_equipped_ozutsu && variable.should_render_attachable_weapon"
 				},
 				{
-					"controller.render.player.lever_action_rifle": "variable.is_equipped_lever_action_rifle"
+					"controller.render.player.lever_action_rifle": "variable.is_equipped_lever_action_rifle && variable.should_render_attachable_weapon"
 				},
 				{
-					"controller.render.player.wooden_spear": "variable.is_equipped_wooden_spear"
+					"controller.render.player.colt": "variable.is_equipped_colt && variable.should_render_attachable_weapon"
 				},
 				{
-					"controller.render.player.stone_spear": "variable.is_equipped_stone_spear"
+					"controller.render.player.wooden_spear": "variable.is_equipped_wooden_spear && variable.should_render_attachable_weapon"
 				},
 				{
-					"controller.render.player.iron_spear": "variable.is_equipped_iron_spear"
+					"controller.render.player.stone_spear": "variable.is_equipped_stone_spear && variable.should_render_attachable_weapon"
 				},
 				{
-					"controller.render.player.tiger_spear": "variable.is_equipped_tiger_spear"
+					"controller.render.player.iron_spear": "variable.is_equipped_iron_spear && variable.should_render_attachable_weapon"
 				},
 				{
-					"controller.render.player.advancements_ui": "variable.should_render_in_hud && variable.advancements_fade_motion < 649.0f"
+					"controller.render.player.tiger_spear": "variable.is_equipped_tiger_spear && variable.should_render_attachable_weapon"
+				},
+				{
+					"controller.render.player.advancements_ui": "variable.should_render_in_hud && variable.advancements_fade_motion < 649.0f && variable.should_render_attachable_weapon"
 				},
 				// Modified Render Controllers //
 				{
-					"controller.render.player.first_person": "variable.is_first_person"
+					"controller.render.player.first_person": "variable.is_first_person && !query.is_spectator && variable.should_render_attachable_weapon"
 				},
 				// Vanilla Render Controllers //
 				{
-					"controller.render.player.third_person": "!variable.is_first_person && !variable.map_face_icon"
+					"controller.render.player.first_person_spectator": "variable.is_first_person && query.is_spectator"
+				},
+				{
+					"controller.render.player.third_person_spectator": "!variable.is_first_person && !variable.map_face_icon && query.is_spectator"
+				},
+				{
+					"controller.render.player.third_person": "!variable.is_first_person && !variable.map_face_icon && !query.is_spectator"
 				},
 				{
 					"controller.render.player.map": "variable.map_face_icon"

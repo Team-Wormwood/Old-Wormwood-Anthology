@@ -173,6 +173,9 @@
 							"attachables.lever_action_rifle.setup": "variable.is_equipped_lever_action_rifle"
 						},
 						{
+							"attachables.colt.setup": "variable.is_equipped_colt"
+						},
+						{
 							"attachables.spear.setup": "variable.is_equipped_any_spear"
 						}
 					]
@@ -195,9 +198,6 @@
 						},
 						{
 							"first_person_map_controller": "(query.get_equipped_item_name(0, 1) == 'map' || query.get_equipped_item_name('off_hand') == 'map')"
-						},
-						{
-							"first_person_crossbow_equipped": "query.get_equipped_item_name == 'crossbow' && (variable.item_use_normalized > 0 && variable.item_use_normalized < 1.0)"
 						}
 					],
 					"transitions": [
@@ -247,25 +247,19 @@
 				},
 				"third_person": {
 					"animations": [
-						"humanoid_base_pose",
 						// "move.arms",
-						"move.legs",
-						"cape",
 						// "holding",
-						{
-							"look_at_target": "!query.is_sleeping && !query.is_emoting"
-						},
 						// {
 						// 	"riding.arms": "query.is_riding"
 						// },
+						"humanoid_base_pose",
+						"move.legs",
+						"cape",
+						{
+							"look_at_target": "!query.is_sleeping && !query.is_emoting"
+						},
 						{
 							"riding.legs": "query.is_riding"
-						},
-						{
-							"brandish_spear": "variable.is_brandishing_spear"
-						},
-						{
-							"holding_spyglass": "variable.is_holding_spyglass"
 						},
 						{
 							"charging": "query.is_charging"
@@ -295,16 +289,7 @@
 							"attack.positions": "variable.attack_time >= 0.0"
 						},
 						{
-							"attack.rotations": "variable.attack_time >= 0.0"
-						},
-						{
-							"shield_block_main_hand": "query.blocking && query.get_equipped_item_name('off_hand') != 'shield' && query.get_equipped_item_name == 'shield'"
-						},
-						{
 							"shield_block_off_hand": "query.blocking && query.get_equipped_item_name('off_hand') == 'shield'"
-						},
-						{
-							"crossbow_controller": "query.get_equipped_item_name == 'crossbow'"
 						},
 						{
 							"third_person_bow_equipped": "query.get_equipped_item_name == 'bow' && (variable.item_use_normalized > 0 && variable.item_use_normalized < 1.0)"

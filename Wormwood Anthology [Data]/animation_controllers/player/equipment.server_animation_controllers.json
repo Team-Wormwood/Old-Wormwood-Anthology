@@ -18,6 +18,9 @@
 						},
 						{
 							"lever_action_rifle.firing": "query.mark_variant == 4"
+						},
+						{
+							"colt.firing": "query.mark_variant == 5"
 						}
 					]
 				},
@@ -60,27 +63,116 @@
 							"default": "1"
 						}
 					]
+				},
+				"colt.firing": {
+					"on_entry": [
+						"@s modified_player:remove_client_flag.colt"
+					],
+					"transitions": [
+						{
+							"default": "1"
+						}
+					]
 				}
 			}
 		},
 		// World Beyond //
-		"controller.animation.item_equip_sounds": {
+		"controller.animation.server_player.equipment_effects": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [
+						"equipment_effects.head",
+						"equipment_effects.chest",
+						"equipment_effects.legs",
+						"equipment_effects.feet"
+					]
+				}
+			}
+		},
+		"controller.animation.server.equipment_effects.head": {
 			"initial_state": "default",
 			"states": {
 				"default": {
 					"transitions": [
 						{
-							"adventure_hats": "query.is_item_name_any('slot.armor.head', 0, 'wormwood:adventure_hat') || query.is_item_name_any('slot.armor.head', 0, 'wormwood:colourful_adventure_hat')"
+							"equip_sound": "query.equipped_item_any_tag('slot.armor.head', 'wormwood:head_item')"
 						}
 					]
 				},
-				"adventure_hats": {
+				"equip_sound": {
 					"on_entry": [
-						"/playsound armor.equip_leather"
+						"/playsound armor.equip_leather @s"
 					],
 					"transitions": [
 						{
-							"default": "!query.is_item_name_any('slot.armor.head', 0, 'wormwood:adventure_hat') || !query.is_item_name_any('slot.armor.head', 0, 'wormwood:colourful_adventure_hat')"
+							"default": "!query.equipped_item_any_tag('slot.armor.head', 'wormwood:head_item')"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.server.equipment_effects.chest": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"equip_sound": "query.equipped_item_any_tag('slot.armor.chest', 'wormwood:chest_item')"
+						}
+					]
+				},
+				"equip_sound": {
+					"on_entry": [
+						"/playsound armor.equip_leather @s"
+					],
+					"transitions": [
+						{
+							"default": "!query.equipped_item_any_tag('slot.armor.chest', 'wormwood:chest_item')"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.server.equipment_effects.legs": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"equip_sound": "query.equipped_item_any_tag('slot.armor.legs', 'wormwood:legs_item')"
+						}
+					]
+				},
+				"equip_sound": {
+					"on_entry": [
+						"/playsound armor.equip_leather @s"
+					],
+					"transitions": [
+						{
+							"default": "!query.equipped_item_any_tag('slot.armor.legs', 'wormwood:legs_item')"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.server.equipment_effects.feet": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"equip_sound": "query.equipped_item_any_tag('slot.armor.feet', 'wormwood:feet_item')"
+						}
+					]
+				},
+				"equip_sound": {
+					"on_entry": [
+						"/playsound armor.equip_leather @s"
+					],
+					"transitions": [
+						{
+							"default": "!query.equipped_item_any_tag('slot.armor.feet', 'wormwood:feet_item')"
 						}
 					]
 				}

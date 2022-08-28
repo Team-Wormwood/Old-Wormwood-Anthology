@@ -2,13 +2,13 @@
     "format_version": "1.8.0",
     "render_controllers": {
         "controller.render.player.advancements_ui": {
+            "light_color_multiplier": 1.5,
             "ignore_lighting": true,
             "is_hurt_color": {},
             "on_fire_color": {},
-            "light_color_multiplier": 1.2,
             "geometry": "geometry.advancements_ui",
             "textures": [
-                "array.advancements[query.skin_id]"
+                "Array.advancements[query.skin_id]"
             ],
             "materials": [
                 {
@@ -18,12 +18,18 @@
             "arrays": {
                 "textures": {
                     "array.advancements": [
-                        "texture.advancement.adventuring_journey",
                         "texture.advancement.feet_wet",
-                        "texture.advancement.adventuring_journey"
+                        "texture.advancement.feet_wet",
+                        "texture.advancement.adventuring_journey",
+                        "texture.advancement.cross_fox"
                     ]
                 }
-            }
+            },
+            "part_visibility": [
+                {
+                    "*": "query.skin_id > 0"
+                }
+            ]
         }
     }
 }
