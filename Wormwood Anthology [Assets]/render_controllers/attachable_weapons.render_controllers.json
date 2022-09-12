@@ -9,8 +9,16 @@
                 }
             ],
             "textures": [
-                "Texture.default"
+                "array.is_developer_skin[query.get_name == 'yanasakana' || query.get_name == 'luthorius']"
             ],
+            "arrays": {
+                "textures": {
+                    "array.is_developer_skin": [
+                        "Texture.default",
+                        "Texture.invisible"
+                    ]
+                }
+            },
             "part_visibility": [
                 {
                     "*": false

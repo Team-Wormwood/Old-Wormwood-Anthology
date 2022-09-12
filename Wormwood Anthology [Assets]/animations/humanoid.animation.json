@@ -13,6 +13,22 @@
 					"scale": 1.45
 				}
 			}
+		},
+		"animation.wormwood.player.tail": {
+			"loop": true,
+			"bones": {
+				"tail": {
+					"rotation": ["math.lerp(-60, 75.0, query.cape_flap_amount)", "variable.tail_rotation + query.yaw_speed", 0]
+				}
+			}
+		},
+		"animation.wormwood.player.chibiosciaa": {
+			"loop": true,
+			"bones": {
+				"root": {
+					"scale": 0.66
+				}
+			}
 		}
 	}
 }
