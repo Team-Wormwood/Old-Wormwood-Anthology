@@ -23,6 +23,8 @@
 				"spear_stone": "geometry.stone_spear",
 				"spear_iron": "geometry.iron_spear",
 				"spear_tiger": "geometry.tiger_claw_spear",
+				// Developer Skin Models //
+				"sumiowo": "geometry.player.sumiowo",
 				// Vanilla Models //
 				"default": "geometry.humanoid.custom",
 				"cape": "geometry.cape"
@@ -42,12 +44,17 @@
 				"spear_stone": "textures/attachables/stone_spear",
 				"spear_iron": "textures/attachables/iron_spear",
 				"spear_tiger": "textures/attachables/tiger_claw_spear",
+				// Developer Skin textures //
+				"sumiowo": "textures/entity/sumiowo",
+				"luth": "textures/entity/luth",
+				"invisible": "textures/invisible",
 				// Vanilla Textures //
 				"default": "textures/entity/steve",
 				"cape": "textures/entity/cape_invisible"
 			},
 			"particle_effects": {
 				"gun_sparks": "wormwood:sparks"
+				//"molang": "wormwood:molang"
 			},
 			"sound_effects": {
 				"chinese_assault_rifle.fire": "weapon.chinese_assault_rifle.fire",
@@ -58,12 +65,15 @@
 				"lever_action_rifle.reload": "weapon.lever_action_rifle.reload",
 				"colt.fire": "weapon.colt.fire",
 				"spear.swing": "entity.player.attack.sweep"
+				//"ciosciaa.death": "entity.player.ciosciaa.death"
 			},
 			"scripts": {
 				"initialize": [
 					// Advancement Variables //
 					"variable.should_render_in_hud = 0.0;",
 					"variable.advancements_fade_motion = 0.0;",
+					// Animation Variables //
+					"variable.tail_rotation = 0.0;",
 					// Vanilla Variables //
 					"variable.is_holding_right = 0.0;",
 					"variable.is_blinking = 0.0;",
@@ -88,6 +98,16 @@
 					"variable.should_render_in_hud = !query.is_riding && !query.is_gliding && query.is_alive && query.is_in_ui && !query.is_spectator && !variable.map_face_icon;",
 					"variable.fixed_arm_positions = query.is_on_screen ? variable.is_equipped_any_attachable_weapon;",
 					"temp.distance = ( query.skin_id > 0 ) ? 0 : 500; temp.fade_speed = 0.33; temp.fade_amount = 0.5; temp.delta_time = variable.is_first_person ? query.delta_time : query.last_frame_time; variable.advancements_fade_motion = variable.advancements_fade_motion + ( temp.distance - variable.advancements_fade_motion ) * ( 1 - math.pow( temp.fade_speed , temp.delta_time / temp.fade_amount ) );",
+					"variable.armour_glow_1 = 0.32 * math.cos(q.life_time * 30) + 0.32;",
+					"variable.is_developer = query.get_name == 'yanasakana' || query.get_name =='luthorius' || query.get_name == 'ciosciaa';",
+					//Not a full list, of course.
+					//Actually no. It is, with the addition of Mr. Cook
+					//Captain C. Cook
+					"variable.is_custom_model = query.get_name == 'yanasakana' || query.get_name =='luthorius';",
+					"variable.is_fucking_tiny_bitch = query.get_name == 'ciosciaa';",
+					"variable.tail_rotation = math.min(math.max(variable.tail_rotation / math.max(1 + (query.is_moving * 0.1), 1 + (query.modified_move_speed * 50)) + (-query.yaw_speed / 3.5), -70), 70);",
+					"variable.is_equipped_any_hat = query.is_item_name_any('slot.armor.head', 'wormwood:shulker_shell', 'wormwood:primal_helmet', 'wormwood:pirate_hat', 'wormwood:trans_pirate_hat', 'wormwood:adventure_hat', 'wormwood:colourful_adventure_hat', 'minecraft:leather_helmet', 'minecraft:golden_helmet', 'minecraft:chainmail_helmet', 'minecraft:iron_helmet', 'minecraft:turtle_helmet', 'minecraft:diamond_helmet', 'minecraft:netherite_helmet');",
+					"variable.is_equipped_hat_no_ears = query.is_item_name_any('slot.armor.head', 'wormwood:shulker_shell', 'wormwood:primal_helmet', 'minecraft:leather_helmet', 'minecraft:golden_helmet', 'minecraft:chainmail_helmet', 'minecraft:iron_helmet', 'minecraft:turtle_helmet', 'minecraft:diamond_helmet', 'minecraft:netherite_helmet');",
 					// Vanilla Variables // 
 					"variable.helmet_layer_visible = 1.0;",
 					"variable.leg_layer_visible = 1.0;",
@@ -110,6 +130,9 @@
 					},
 					{
 						"attachable_root": "!variable.is_paperdoll && !variable.map_face_icon"
+					},
+					{
+						"tiny": "variable.is_fucking_tiny_bitch"
 					}
 				],
 				"scale": "0.9375"
@@ -158,6 +181,9 @@
 				"attachables.spear.wield.third_person": "animation.wormwood.player.attachables.spear.wield.third_person",
 				"attachables.spear.swing.first_person": "animation.wormwood.player.attachables.spear.swing.first_person",
 				"attachables.spear.swing.third_person": "animation.wormwood.player.attachables.spear.swing.third_person",
+				"tail": "animation.wormwood.player.tail",
+				//"ciosciaa": "controller.animation.wormwood.player.ciosciaa",
+				"tiny": "animation.wormwood.player.chibiosciaa",
 				// Modified Animations //
 				"modified_root": "controller.animation.player.modified_root",
 				"attachable_root": "controller.animation.player.attachable_root",
@@ -251,6 +277,15 @@
 				},
 				{
 					"controller.render.player.advancements_ui": "variable.should_render_in_hud && variable.advancements_fade_motion < 649.0f && variable.should_render_attachable_weapon"
+				},
+				{
+					"controller.render.player.custom_first_person": "variable.is_first_person"
+				},
+				{
+					"controller.render.player.custom_third_person": "!variable.is_first_person"
+				},
+				{
+					"controller.render.player.custom_map": "variable.map_face_icon"
 				},
 				// Modified Render Controllers //
 				{
