@@ -5,10 +5,10 @@
             "identifier": "wormwood:light_block.1"
         },
         "components": {
-            "minecraft:pick_collision": false,
-            "minecraft:entity_collision": false,
-            "minecraft:block_light_emission": 0.75,
             "minecraft:loot": "loot_tables/empty.json",
+            "minecraft:block_light_emission": 0.75,
+            "minecraft:entity_collision": false,
+            "minecraft:pick_collision": false,
             "minecraft:unit_cube": {},
             "tag:air": {},
             "minecraft:material_instances": {

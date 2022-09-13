@@ -1,0 +1,81 @@
+{
+    "format_version": "1.10.0",
+    "animation_controllers": {
+        // Melee Weapons
+        "controller.animation.wormwood.player.attachables.spear.setup": {
+            "initial_state": "default",
+            "states": {
+                "default": {
+                    "animations": [
+                        {
+                            "attachables.spear.wield.first_person": "variable.is_equipped_any_spear && variable.is_first_person"
+                        },
+                        {
+                            "attachables.spear.wield.third_person": "variable.is_equipped_any_spear && !variable.is_first_person"
+                        },
+                        {
+                            "attachables.spear.controller": "variable.is_equipped_any_spear"
+                        }
+                    ]
+                }
+            }
+        },
+        "controller.animation.wormwood.player.attachables.spear.controller": {
+            "initial_state": "not_holding",
+            "states": {
+                "pre_not_holding": {
+                    "transitions": [
+                        {
+                            "not_holding": "1"
+                        }
+                    ]
+                },
+                "not_holding": {
+                    "transitions": [
+                        {
+                            "wielding": "variable.is_equipped_any_spear"
+                        }
+                    ]
+                },
+                "wielding": {
+                    "transitions": [
+                        {
+                            "pre_not_holding": "!variable.is_equipped_any_spear"
+                        },
+                        {
+                            "swinging": "variable.attack_time > 0.0f"
+                        }
+                    ],
+                    "blend_transition": 0.025
+                },
+                "swinging": {
+                    "on_entry": [
+                        "variable.time = query.life_time;"
+                    ],
+                    "transitions": [
+                        {
+                            "wielding": "query.life_time - variable.time >= 0.48"
+                        },
+                        {
+                            "pre_not_holding": "!variable.is_equipped_any_spear"
+                        }
+                    ],
+                    "blend_transition": 0.1,
+                    "animations": [
+                        {
+                            "attachables.spear.swing.first_person": "variable.is_first_person"
+                        },
+                        {
+                            "attachables.spear.swing.third_person": "!variable.is_first_person"
+                        }
+                    ],
+                    "sound_effects": [
+                        {
+                            "effect": "spear.swing"
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}

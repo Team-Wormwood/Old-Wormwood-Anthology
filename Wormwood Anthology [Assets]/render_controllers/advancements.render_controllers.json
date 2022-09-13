@@ -1,35 +1,30 @@
 {
     "format_version": "1.8.0",
     "render_controllers": {
+        // Player Advancement UI Renderer //
         "controller.render.player.advancements_ui": {
+            "part_visibility": [ { "*": "query.skin_id > 0.0f" } ], // Dynamically enabling our GUI, should any advancements be registered to our Player
+            "textures": [ "Array.advancements[ query.skin_id ]" ], // GUI Texture selection
+            "materials": [ { "*": "Material.default" } ],
+            "geometry": "Geometry.advancements_ui",
             "light_color_multiplier": 1.5,
             "ignore_lighting": true,
-            "is_hurt_color": {},
             "on_fire_color": {},
-            "geometry": "geometry.advancements_ui",
-            "textures": [
-                "Array.advancements[query.skin_id]"
-            ],
-            "materials": [
-                {
-                    "*": "material.default"
-                }
-            ],
+            "is_hurt_color": {},
+            //
             "arrays": {
                 "textures": {
                     "array.advancements": [
-                        "texture.advancement.feet_wet",
-                        "texture.advancement.feet_wet",
-                        "texture.advancement.adventuring_journey",
-                        "texture.advancement.cross_fox"
+                        // Array Padding //
+                        "Texture.advancement.feet_wet", // Padding - 0
+                        // Advancements //
+                        "Texture.advancement.feet_wet", // Wet Feet - 1
+                        "Texture.advancement.adventuring_journey", // Adventuring Journey - 2
+                        "Texture.advancement.cross_fox" // Cross-Fox Pet - 3
                     ]
                 }
-            },
-            "part_visibility": [
-                {
-                    "*": "query.skin_id > 0"
-                }
-            ]
+            }
         }
+        // //
     }
 }

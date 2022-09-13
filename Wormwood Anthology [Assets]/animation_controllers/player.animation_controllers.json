@@ -187,6 +187,9 @@
 			"states": {
 				"first_person": {
 					"animations": [
+						// {
+						// 	"first_person_aim_down_sights": "query.is_sneaking"
+						// },
 						{
 							"first_person_shield_block": "query.blocking"
 						},

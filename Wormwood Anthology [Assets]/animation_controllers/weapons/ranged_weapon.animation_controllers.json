@@ -77,6 +77,7 @@
                 }
             }
         },
+        //
         "controller.animation.wormwood.player.attachables.ozutsu.setup": {
             "initial_state": "default",
             "states": {
@@ -152,6 +153,7 @@
                 }
             }
         },
+        //
         "controller.animation.wormwood.player.attachables.laser_pistol.setup": {
             "initial_state": "default",
             "states": {
@@ -227,6 +229,7 @@
                 }
             }
         },
+        //
         "controller.animation.wormwood.player.attachables.lever_action_rifle.setup": {
             "initial_state": "default",
             "states": {
@@ -302,6 +305,7 @@
                 }
             }
         },
+        //
         "controller.animation.wormwood.player.attachables.colt.setup": {
             "initial_state": "default",
             "states": {
@@ -315,6 +319,38 @@
                         },
                         {
                             "attachables.colt.controller": "variable.is_equipped_colt"
+                        },
+                        {
+                            "attachables.colt_ads.controller": "variable.is_equipped_colt"
+                        }
+                    ]
+                }
+            }
+        },
+        "controller.animation.wormwood.player.attachables.colt.aiming_down_sights": {
+            "initial_state": "default",
+            "states": {
+                "default": {
+                    "blend_transition": 0.125,
+                    "transitions": [
+                        {
+                            "aiming_down_sights": "query.is_sneaking"
+                        }
+                    ]
+                },
+                "aiming_down_sights": {
+                    "blend_transition": 1.25,
+                    "animations": [
+                        {
+                            "attachables.colt.aim_down_sights.first_person": "variable.is_equipped_colt && variable.is_first_person"
+                        },
+                        {
+                            "attachables.colt.aim_down_sights.third_person": "variable.is_equipped_colt && !variable.is_first_person"
+                        }
+                    ],
+                    "transitions": [
+                        {
+                            "aiming_down_sights": "!query.is_sneaking"
                         }
                     ]
                 }
@@ -372,82 +408,6 @@
                     "sound_effects": [
                         {
                             "effect": "colt.fire"
-                        }
-                    ]
-                }
-            }
-        },
-        // Melee Weapons
-        "controller.animation.wormwood.player.attachables.spear.setup": {
-            "initial_state": "default",
-            "states": {
-                "default": {
-                    "animations": [
-                        {
-                            "attachables.spear.wield.first_person": "variable.is_equipped_any_spear && variable.is_first_person"
-                        },
-                        {
-                            "attachables.spear.wield.third_person": "variable.is_equipped_any_spear && !variable.is_first_person"
-                        },
-                        {
-                            "attachables.spear.controller": "variable.is_equipped_any_spear"
-                        }
-                    ]
-                }
-            }
-        },
-        "controller.animation.wormwood.player.attachables.spear.controller": {
-            "initial_state": "not_holding",
-            "states": {
-                "pre_not_holding": {
-                    "transitions": [
-                        {
-                            "not_holding": "1"
-                        }
-                    ]
-                },
-                "not_holding": {
-                    "transitions": [
-                        {
-                            "wielding": "variable.is_equipped_any_spear"
-                        }
-                    ]
-                },
-                "wielding": {
-                    "transitions": [
-                        {
-                            "pre_not_holding": "!variable.is_equipped_any_spear"
-                        },
-                        {
-                            "swinging": "variable.attack_time > 0.0f"
-                        }
-                    ],
-                    "blend_transition": 0.025
-                },
-                "swinging": {
-                    "on_entry": [
-                        "variable.time = query.life_time;"
-                    ],
-                    "transitions": [
-                        {
-                            "wielding": "query.life_time - variable.time >= 0.48"
-                        },
-                        {
-                            "pre_not_holding": "!variable.is_equipped_any_spear"
-                        }
-                    ],
-                    "blend_transition": 0.1,
-                    "animations": [
-                        {
-                            "attachables.spear.swing.first_person": "variable.is_first_person"
-                        },
-                        {
-                            "attachables.spear.swing.third_person": "!variable.is_first_person"
-                        }
-                    ],
-                    "sound_effects": [
-                        {
-                            "effect": "spear.swing"
                         }
                     ]
                 }

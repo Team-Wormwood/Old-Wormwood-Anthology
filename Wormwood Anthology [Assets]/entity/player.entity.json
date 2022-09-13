@@ -145,8 +145,11 @@
 				//
 				"attachables.colt.setup": "controller.animation.wormwood.player.attachables.colt.setup",
 				"attachables.colt.controller": "controller.animation.wormwood.player.attachables.colt.controller",
+				"attachables.colt_ads.controller": "controller.animation.wormwood.player.attachables.colt.aiming_down_sights",
 				"attachables.colt.wield.first_person": "animation.wormwood.player.attachables.colt.wield.first_person",
 				"attachables.colt.wield.third_person": "animation.wormwood.player.attachables.colt.wield.third_person",
+				"attachables.colt.aim_down_sights.first_person": "animation.wormwood.player.attachables.colt.aim_down_sights.first_person",
+				"attachables.colt.aim_down_sights.third_person": "animation.wormwood.player.attachables.colt.aim_down_sights.third_person",
 				"attachables.colt.shoot": "animation.wormwood.player.attachables.colt.shoot",
 				//
 				"attachables.spear.setup": "controller.animation.wormwood.player.attachables.spear.setup",
@@ -160,6 +163,7 @@
 				"attachable_root": "controller.animation.player.attachable_root",
 				// Vanilla Controllers //
 				"first_person_attack_controller": "controller.animation.player.first_person_attack",
+				"first_person_ads_controller": "controller.animation.player.attachable.aim_down_sights",
 				"first_person_map_controller": "controller.animation.player.first_person_map",
 				"look_at_target": "controller.animation.humanoid.look_at_target",
 				"crossbow_controller": "controller.animation.player.crossbow",
@@ -169,6 +173,7 @@
 				"blink": "controller.animation.persona.blink",
 				"root": "controller.animation.player.root",
 				// Vanilla Animations //
+				"first_person_aim_down_sights": "animation.wormwood.player.first_person.aim_down_sights",
 				"first_person_base_pose": "animation.player.first_person.base_pose",
 				"first_person_empty_hand": "animation.player.first_person.empty_hand",
 				"first_person_swap_item": "animation.player.first_person.swap_item",
