@@ -109,11 +109,6 @@
 					]
 				},
 				{
-					"name": "leftItem",
-					"parent": "leftArm",
-					"pivot": [6, 14.5, 1]
-				},
-				{
 					"name": "rightArm",
 					"parent": "body",
 					"pivot": [-5, 21.5, 0],
@@ -131,14 +126,6 @@
 						{"origin": [-7, 15.56, -2], "size": [3, 1, 4], "inflate": 0.15, "pivot": [-5.5, 16.06, 0], "rotation": [0, 0, -0.8], "uv": [0, 5]},
 						{"origin": [-7, 17.05, -2], "size": [3, 1, 4], "inflate": 0.1, "pivot": [-5.5, 17.55, 0], "rotation": [-1.5, 0, -1.5], "uv": [0, 0]}
 					]
-				},
-				{
-					"name": "rightItem",
-					"parent": "rightArm",
-					"pivot": [-6, 14.5, 1],
-					"locators": {
-						"lead_hold": [-6, 14.5, 1]
-					}
 				},
 				{
 					"name": "jacket",
