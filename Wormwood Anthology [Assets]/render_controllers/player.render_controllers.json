@@ -1,108 +1,212 @@
 {
-  "format_version": "1.8.0",
-  "render_controllers": {
-    "controller.render.player.third_person": {
-      "geometry": "Geometry.default",
-      "materials": [ { "*": "Material.default" } ],
-      "textures": [ "array.is_developer_skin[query.get_name == 'yanasakana' || query.get_name == 'luthorius']" ],
-      "arrays": {
-        "textures": {
-          "array.is_developer_skin": [
-            "Texture.default",
-            "Texture.invisible"
-          ]
-        }
-      },
-      "part_visibility": [
-        { "*": true },
-        { "helmet": "variable.helmet_layer_visible" },
-        { "leftLegging": "variable.leg_layer_visible" },
-        { "rightLegging": "variable.leg_layer_visible" },
-        { "leftBoot": "variable.boot_layer_visible" },
-        { "rightBoot": "variable.boot_layer_visible" },
-        { "leftSock": "variable.boot_layer_visible && variable.leg_layer_visible" },
-        { "rightSock": "variable.boot_layer_visible && variable.leg_layer_visible" },
-        { "bodyArmor": "variable.chest_layer_visible && !query.has_cape" },
-        { "leftArmArmor": "variable.chest_layer_visible && !query.has_cape" },
-        { "rightArmArmor": "variable.chest_layer_visible && !query.has_cape" },
-        { "belt": "variable.chest_layer_visible && variable.leg_layer_visible" }
-      ]
-    },
-    "controller.render.player.map": {
-      "geometry": "Geometry.default",
-      "materials": [ { "*": "Material.default" } ],
-      "textures": [ "array.is_developer_skin[query.get_name == 'yanasakana' || query.get_name == 'luthorius']" ],
-      "arrays": {
-        "textures": {
-          "array.is_developer_skin": [
-            "Texture.default",
-            "Texture.invisible"
-          ]
-        }
-      },
-      "part_visibility": [
-        { "*": false },
-        { "head": true },
-        { "hat": true },
-        { "helmet": true }
-      ]
-    },
-    "controller.render.player.custom_first_person": {
-      "geometry": "query.get_name == 'yanasakana' ? Geometry.sumiowo : query.get_name == 'Luthorius' ? Geometry.luth : Geometry.default",
-      "materials": [ { "*": "Material.default" } ],
-      "textures": [ "query.get_name == 'yanasakana' ? Texture.sumiowo : query.get_name == 'Luthorius' ? Texture.luth : Texture.invisible" ],
-      "part_visibility": [
-                {
-                    "*": false
-                },
-                {
-                    "rightArm": "variable.is_equipped_any_attachable_weapon || query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'map'"
-                },
-                {
-                    "rightSleeve": "variable.is_equipped_any_attachable_weapon || query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'map'"
-                },
-                {
-                    "leftArm": "variable.attack_time == 0.0f && (variable.is_equipped_any_attachable_weapon || (query.get_equipped_item_name(0, 1) == 'map' && query.get_equipped_item_name('off_hand') != 'shield') || (query.get_equipped_item_name('off_hand') == 'map' && !query.item_is_charged) || (!query.item_is_charged && (variable.item_use_normalized > 0 && variable.item_use_normalized < 1.0)))"
-                },
-                {
-                    "leftSleeve": "variable.attack_time == 0.0f && (variable.is_equipped_any_attachable_weapon || (query.get_equipped_item_name(0, 1) == 'map' && query.get_equipped_item_name('off_hand') != 'shield') || (query.get_equipped_item_name('off_hand') == 'map' && !query.item_is_charged) || (!query.item_is_charged && (variable.item_use_normalized > 0 && variable.item_use_normalized < 1.0)))"
-                }
-      ]
-    },
-    "controller.render.player.custom_third_person": {
-      "geometry": "query.get_name == 'yanasakana' ? Geometry.sumiowo : query.get_name == 'Luthorius' ? Geometry.luth : Geometry.default",
-      "materials": [ { "*": "Material.default" } ],
-      "textures": [ "query.get_name == 'yanasakana' ? Texture.sumiowo : query.get_name == 'Luthorius' ? Texture.luth : Texture.invisible" ],
-      "part_visibility": [
-        { "*": true },
-        { "helmet": "variable.helmet_layer_visible" },
-        { "leftLegging": "variable.leg_layer_visible" },
-        { "rightLegging": "variable.leg_layer_visible" },
-        { "leftBoot": "variable.boot_layer_visible" },
-        { "rightBoot": "variable.boot_layer_visible" },
-        { "leftSock": "variable.boot_layer_visible && variable.leg_layer_visible" },
-        { "rightSock": "variable.boot_layer_visible && variable.leg_layer_visible" },
-        { "bodyArmor": "variable.chest_layer_visible && !query.has_cape" },
-        { "leftArmArmor": "variable.chest_layer_visible && !query.has_cape" },
-        { "rightArmArmor": "variable.chest_layer_visible && !query.has_cape" },
-        { "belt": "variable.chest_layer_visible && variable.leg_layer_visible" },
-        { "hat*": "!variable.is_equipped_any_hat" },
-        { "ears": "!variable.is_equipped_hat_no_ears " },
-        { "hair": "!variable.is_equipped_any_hat" }
-      ]
-    },
-    "controller.render.player.custom_map": {
-      "geometry": "query.get_name == 'yanasakana' ? Geometry.sumiowo : query.get_name == 'Luthorius' ? Geometry.luth : Geometry.default",
-      "materials": [ { "*": "Material.default" } ],
-      "textures": [ "query.get_name == 'yanasakana' ? Texture.sumiowo : query.get_name == 'Luthorius' ? Texture.luth : Texture.invisible" ],
-      "part_visibility": [
-        { "*": false },
-        { "head": true },
-        { "hat*": "!variable.is_equipped_any_hat" },
-        { "helmet": true },
-        { "ears": "!variable.is_equipped_hat_no_ears" },
-        { "hair": "!variable.is_equipped_any_hat" }
-      ]
-    }
-  }
+	"format_version": "1.8.0",
+	"render_controllers": {
+		"controller.render.player.third_person": {
+			"geometry": "Geometry.default",
+			"materials": [
+				{
+					"*": "Material.default"
+				}
+			],
+			"textures": [
+				"array.is_developer_skin[query.get_name == 'yanasakana' && query.moon_phase == 0 || query.get_name == 'luthorius']"
+			],
+			"arrays": {
+				"textures": {
+					"array.is_developer_skin": [
+						"Texture.default",
+						"Texture.invisible"
+					]
+				}
+			},
+			"part_visibility": [
+				{
+					"*": true
+				},
+				{
+					"helmet": "variable.helmet_layer_visible"
+				},
+				{
+					"leftLegging": "variable.leg_layer_visible"
+				},
+				{
+					"rightLegging": "variable.leg_layer_visible"
+				},
+				{
+					"leftBoot": "variable.boot_layer_visible"
+				},
+				{
+					"rightBoot": "variable.boot_layer_visible"
+				},
+				{
+					"leftSock": "variable.boot_layer_visible && variable.leg_layer_visible"
+				},
+				{
+					"rightSock": "variable.boot_layer_visible && variable.leg_layer_visible"
+				},
+				{
+					"bodyArmor": "variable.chest_layer_visible && !query.has_cape"
+				},
+				{
+					"leftArmArmor": "variable.chest_layer_visible && !query.has_cape"
+				},
+				{
+					"rightArmArmor": "variable.chest_layer_visible && !query.has_cape"
+				},
+				{
+					"belt": "variable.chest_layer_visible && variable.leg_layer_visible"
+				}
+			]
+		},
+		"controller.render.player.map": {
+			"geometry": "Geometry.default",
+			"materials": [
+				{
+					"*": "Material.default"
+				}
+			],
+			"textures": [
+				"array.is_developer_skin[query.get_name == 'yanasakana' && query.moon_phase == 0 || query.get_name == 'luthorius']"
+			],
+			"arrays": {
+				"textures": {
+					"array.is_developer_skin": [
+						"Texture.default",
+						"Texture.invisible"
+					]
+				}
+			},
+			"part_visibility": [
+				{
+					"*": false
+				},
+				{
+					"head": true
+				},
+				{
+					"hat": true
+				},
+				{
+					"helmet": true
+				}
+			]
+		},
+		"controller.render.player.custom_first_person": {
+			"geometry": "query.get_name == 'yanasakana' && query.moon_phase == 0 ? Geometry.sumiowo : query.get_name == 'Luthorius' ? Geometry.luth : Geometry.default",
+			"materials": [
+				{
+					"*": "Material.default"
+				}
+			],
+			"textures": [
+				"query.get_name == 'yanasakana' && query.moon_phase == 0 ? Texture.sumiowo : query.get_name == 'Luthorius' ? Texture.luth : Texture.invisible"
+			],
+			"part_visibility": [
+				{
+					"*": false
+				},
+				{
+					"rightArm": "variable.is_equipped_any_attachable_weapon || query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'map'"
+				},
+				{
+					"rightSleeve": "variable.is_equipped_any_attachable_weapon || query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'map'"
+				},
+				{
+					"leftArm": "variable.attack_time == 0.0f && (variable.is_equipped_any_attachable_weapon || (query.get_equipped_item_name(0, 1) == 'map' && query.get_equipped_item_name('off_hand') != 'shield') || (query.get_equipped_item_name('off_hand') == 'map' && !query.item_is_charged) || (!query.item_is_charged && (variable.item_use_normalized > 0 && variable.item_use_normalized < 1.0)))"
+				},
+				{
+					"leftSleeve": "variable.attack_time == 0.0f && (variable.is_equipped_any_attachable_weapon || (query.get_equipped_item_name(0, 1) == 'map' && query.get_equipped_item_name('off_hand') != 'shield') || (query.get_equipped_item_name('off_hand') == 'map' && !query.item_is_charged) || (!query.item_is_charged && (variable.item_use_normalized > 0 && variable.item_use_normalized < 1.0)))"
+				}
+			]
+		},
+		"controller.render.player.custom_third_person": {
+			"geometry": "query.get_name == 'yanasakana' && query.moon_phase == 0 ? Geometry.sumiowo : query.get_name == 'Luthorius' ? Geometry.luth : Geometry.default",
+			"materials": [
+				{
+					"*": "Material.default"
+				}
+			],
+			"textures": [
+				"query.get_name == 'yanasakana' && query.moon_phase == 0 ? Texture.sumiowo : query.get_name == 'Luthorius' ? Texture.luth : Texture.invisible"
+			],
+			"part_visibility": [
+				{
+					"*": true
+				},
+				{
+					"helmet": "variable.helmet_layer_visible"
+				},
+				{
+					"leftLegging": "variable.leg_layer_visible"
+				},
+				{
+					"rightLegging": "variable.leg_layer_visible"
+				},
+				{
+					"leftBoot": "variable.boot_layer_visible"
+				},
+				{
+					"rightBoot": "variable.boot_layer_visible"
+				},
+				{
+					"leftSock": "variable.boot_layer_visible && variable.leg_layer_visible"
+				},
+				{
+					"rightSock": "variable.boot_layer_visible && variable.leg_layer_visible"
+				},
+				{
+					"bodyArmor": "variable.chest_layer_visible && !query.has_cape"
+				},
+				{
+					"leftArmArmor": "variable.chest_layer_visible && !query.has_cape"
+				},
+				{
+					"rightArmArmor": "variable.chest_layer_visible && !query.has_cape"
+				},
+				{
+					"belt": "variable.chest_layer_visible && variable.leg_layer_visible"
+				},
+				{
+					"hat*": "!variable.is_equipped_any_hat"
+				},
+				{
+					"ears": "!variable.is_equipped_hat_no_ears "
+				},
+				{
+					"hair": "!variable.is_equipped_any_hat"
+				}
+			]
+		},
+		"controller.render.player.custom_map": {
+			"geometry": "query.get_name == 'yanasakana' && query.moon_phase == 0 ? Geometry.sumiowo : query.get_name == 'Luthorius' ? Geometry.luth : Geometry.default",
+			"materials": [
+				{
+					"*": "Material.default"
+				}
+			],
+			"textures": [
+				"query.get_name == 'yanasakana' && query.moon_phase == 0 ? Texture.sumiowo : query.get_name == 'Luthorius' ? Texture.luth : Texture.invisible"
+			],
+			"part_visibility": [
+				{
+					"*": false
+				},
+				{
+					"head": true
+				},
+				{
+					"hat*": "!variable.is_equipped_any_hat"
+				},
+				{
+					"helmet": true
+				},
+				{
+					"ears": "!variable.is_equipped_hat_no_ears"
+				},
+				{
+					"hair": "!variable.is_equipped_any_hat"
+				}
+			]
+		}
+	}
 }

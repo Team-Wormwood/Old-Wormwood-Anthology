@@ -9,7 +9,7 @@
                 }
             ],
             "textures": [
-                "array.is_developer_skin[query.get_name == 'yanasakana' || query.get_name == 'luthorius']"
+                "array.is_developer_skin[query.get_name == 'yanasakana' && query.moon_phase == 0 || query.get_name == 'luthorius']"
             ],
             "arrays": {
                 "textures": {

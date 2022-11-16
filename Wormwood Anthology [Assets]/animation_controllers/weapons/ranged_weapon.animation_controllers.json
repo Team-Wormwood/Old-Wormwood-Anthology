@@ -334,12 +334,35 @@
                     "blend_transition": 0.125,
                     "transitions": [
                         {
-                            "aiming_down_sights": "query.is_sneaking"
+                            "pre_aiming_down_sights": "query.is_sneaking"
+                        }
+                    ]
+                },
+                "pre_aiming_down_sights": {
+                    "transitions": [
+                        {
+                            "aiming_down_sights": "1"
+                        }
+                    ]
+                },
+                "post_aiming_down_sights": {
+                    "blend_transition": 0.125,
+                    "animations": [
+                        {
+                            "attachables.colt.exit_aim_down_sights.first_person": "variable.is_equipped_colt && variable.is_first_person"
+                        },
+                        {
+                            "attachables.colt.exit_aim_down_sights.third_person": "variable.is_equipped_colt && !variable.is_first_person"
+                        }
+                    ],
+                    "transitions": [
+                        {
+                            "default": "query.any_animation_finished"
                         }
                     ]
                 },
                 "aiming_down_sights": {
-                    "blend_transition": 1.25,
+                    "blend_transition": 0.125,
                     "animations": [
                         {
                             "attachables.colt.aim_down_sights.first_person": "variable.is_equipped_colt && variable.is_first_person"
@@ -350,7 +373,7 @@
                     ],
                     "transitions": [
                         {
-                            "aiming_down_sights": "!query.is_sneaking"
+                            "post_aiming_down_sights": "!query.is_sneaking"
                         }
                     ]
                 }

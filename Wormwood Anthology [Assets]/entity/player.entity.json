@@ -173,6 +173,8 @@
 				"attachables.colt.wield.third_person": "animation.wormwood.player.attachables.colt.wield.third_person",
 				"attachables.colt.aim_down_sights.first_person": "animation.wormwood.player.attachables.colt.aim_down_sights.first_person",
 				"attachables.colt.aim_down_sights.third_person": "animation.wormwood.player.attachables.colt.aim_down_sights.third_person",
+				"attachables.colt.exit_aim_down_sights.first_person": "animation.wormwood.player.attachables.colt.exit_aim_down_sights.first_person",
+				"attachables.colt.exit_aim_down_sights.third_person": "animation.wormwood.player.attachables.colt.exit_aim_down_sights.third_person",
 				"attachables.colt.shoot": "animation.wormwood.player.attachables.colt.shoot",
 				//
 				"attachables.spear.setup": "controller.animation.wormwood.player.attachables.spear.setup",
