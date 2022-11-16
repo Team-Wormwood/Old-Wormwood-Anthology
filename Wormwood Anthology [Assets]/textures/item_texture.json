@@ -3,6 +3,12 @@
     "texture_data": {
         "the_device": {
             "textures": "textures/items/device"
+        },
+        "empty_jar": {
+            "textures": "textures/items/empty_jar_larger"
+        },
+        "empty_vial": {
+            "textures": "textures/items/empty_vial"
         }
     },
     "texture_name": "atlas.items"

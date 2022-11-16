@@ -1,0 +1,10 @@
+fill ~15 ~15 ~15 ~-15 ~-15 ~-15 air 0 replace dirt -1
+fill ~15 ~15 ~15 ~-15 ~-15 ~-15 air 0 replace dirt_with_roots -1
+fill ~15 ~15 ~15 ~-15 ~-15 ~-15 air 0 replace gravel -1
+fill ~15 ~15 ~15 ~-15 ~-15 ~-15 air 0 replace sand -1
+##fill ~15 ~15 ~15 ~-15 ~-15 ~-15 air 0 replace red_sand -1
+fill ~15 ~15 ~15 ~-15 ~-15 ~-15 air 0 replace mud -1
+##fill ~15 ~15 ~15 ~-15 ~-15 ~-15 air 0 replace soulsand -1
+fill ~15 ~15 ~15 ~-15 ~-15 ~-15 air 0 replace soul_soil -1
+fill ~15 ~15 ~15 ~-15 ~-15 ~-15 air 0 replace clay -1
+fill ~15 ~15 ~15 ~-15 ~-15 ~-15 air 0 replace podzol -1
