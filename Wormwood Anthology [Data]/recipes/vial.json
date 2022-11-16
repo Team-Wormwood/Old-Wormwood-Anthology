@@ -1,0 +1,25 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "wormwood:glass_vial"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"pattern": [
+			"# #",
+			"# #",
+			" # "
+		],
+		"key": {
+			"#": {
+				"item": "minecraft:glass"
+			}
+		},
+		"result": {
+			"item": "wormwood:glass_vial",
+			"count": 6
+		}
+	}
+}

@@ -9,6 +9,7 @@ execute @a[tag =! initialised.FoW] ~ ~ ~ scoreboard objectives add ammunition.La
 execute @a[tag =! initialised.FoW] ~ ~ ~ scoreboard objectives add ammunition.OZT dummy
 execute @a[tag =! initialised.FoW] ~ ~ ~ scoreboard objectives add ammunition.LVA dummy
 execute @a[tag =! initialised.FoW] ~ ~ ~ scoreboard objectives add ammunition.COL dummy
+execute @a[tag =! initialised.FoW] ~ ~ ~ scoreboard objectives add ammunition.T51C dummy
 
 tag @a add initialised.FoW
 
@@ -17,6 +18,7 @@ scoreboard players set @a[tag =! initialised.FoW] ammunition.LaPi 20
 scoreboard players set @a[tag =! initialised.FoW] ammunition.OZT 3
 scoreboard players set @a[tag =! initialised.FoW] ammunition.LVA 8
 scoreboard players set @a[tag =! initialised.FoW] ammunition.COL 6
+scoreboard players set @a[tag =! initialised.FoW] ammunition.T51C 18
 
     ## Chinese Assault Rifle ##
 event entity @a[ scores = { ammunition.CAR = 0 } ] modified_player:set_client_flag.chinese_assault_rifle_empty
@@ -42,6 +44,11 @@ event entity @a[ scores = { ammunition.LVA = 1..8 } ] modified_player:set_client
 event entity @a[ scores = { ammunition.COL = 0 } ] modified_player:set_client_flag.colt_empty
 
 event entity @a[ scores = { ammunition.COL = 1..6 } ] modified_player:set_client_flag.colt_full
+
+    ## T-51 Carbine ##
+event entity @a[ scores = { ammunition.T51C = 0 } ] modified_player:set_client_flag.type_51_carbine_empty
+
+event entity @a[ scores = { ammunition.T51C = 1..18 } ] modified_player:set_client_flag.type_51_carbine_full
 
 
 ## Howling Depths
@@ -89,3 +96,44 @@ scoreboard players add @a[ scores = { hasitem = 1.. } ] hasitem -1
 execute @a[ scores = { hasitem = 0 }, tag=cassette.playing ] ~ ~ ~ function cassettes.return
 
 tag @a[ scores = { hasitem = 0 }, tag=cassette.playing ] remove cassette.playing
+
+
+## World Beyond
+## This broke after updating at one point. 
+##execute @a[tag =! initialised.WB] ~ ~ ~ scoreboard objectives add boots.charges dummy
+##execute @a[tag =! initialised.WB] ~ ~ ~ scoreboard objectives add boots.recharge dummy
+##execute @a[tag =! initialised.WB] ~ ~ ~ scoreboard objectives add boots.can_charge dummy
+##
+##tag @a[tag =! initialised.WB] add initialised.WB
+##
+##scoreboard players set @a[tag =! initialised.WB] boots.charges 8
+##scoreboard players set @a[tag =! initialised.WB] boots.recharge 20
+##scoreboard players set @a[tag =! initialised.WB] boots.can_charge 2
+##
+##execute @a ~ ~ ~ detect ~ ~-1 ~ air -1 scoreboard players set @s boots.can_charge 0
+##execute @a ~ ~ ~ detect ~ ~-1 ~ dirt -1 scoreboard players set @s boots.can_charge 0
+##execute @a ~ ~ ~ detect ~ ~-1 ~ air -1 scoreboard players set @s boots.recharge 20
+##execute @a ~ ~ ~ detect ~ ~-1 ~ dirt -1 scoreboard players set @s boots.recharge 20
+##
+##scoreboard players add @a boots.can_charge 1
+##
+##scoreboard players add @a[ scores = { boots.can_charge = 2, boots.recharge = 1..  } ] boots.recharge -1
+##scoreboard players add @a[ scores = { boots.recharge = 0, boots.charges = ..7  } ] boots.charges 1
+##scoreboard players set @a[ scores = { boots.recharge = 0  } ] boots.recharge 20
+##
+##execute @a[ scores = { boots.charges = 1.. }, tag = is_sneaking, hasitem = { item = wormwood:cool_end_boots, location = slot.armor.feet } ] ~ ~ ~ detect ~ ~-1 ~ air -1 scoreboard players add @s boots.charges -1
+##execute @a[ scores = { boots.charges = 1.. }, tag = is_sneaking, hasitem = { item = wormwood:cool_end_boots, location = slot.armor.feet } ] ~ ~ ~ detect ~ ~-1 ~ air -1 setblock ~ ~-1 ~ dirt 0
+
+
+## Development
+## Really cannot remember if this works. Will re-visit soon
+##execute @a[tag =! initialised.dev] ~ ~ ~ scoreboard objectives add doing_worldgen dummy
+##
+##tag @a[tag =! initialised.dev] add initialised.dev
+##
+##scoreboard players set @a[tag =! initialised.dev] doing_worldgen 0
+##
+##execute @a[ scores = { doing_worldgen = 1.. } ] ~ ~ ~ function development/worldgen/clear1
+##execute @a[ scores = { doing_worldgen = 2.. } ] ~ ~ ~ function development/worldgen/clear2
+##execute @a[ scores = { doing_worldgen = 3.. } ] ~ ~ ~ function development/worldgen/clear3
+##execute @a[ scores = { doing_worldgen = 4.. } ] ~ ~ ~ function development/worldgen/clear4

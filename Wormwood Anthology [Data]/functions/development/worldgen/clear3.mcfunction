@@ -1,0 +1,10 @@
+fill ~15 ~15 ~15 ~-15 ~-15 ~-15 air 0 replace stone -1
+fill ~15 ~15 ~15 ~-15 ~-15 ~-15 air 0 replace tuff -1
+fill ~15 ~15 ~15 ~-15 ~-15 ~-15 air 0 replace basalt -1
+fill ~15 ~15 ~15 ~-15 ~-15 ~-15 air 0 replace smooth_basalt -1
+fill ~15 ~15 ~15 ~-15 ~-15 ~-15 air 0 replace blackstone -1
+fill ~15 ~15 ~15 ~-15 ~-15 ~-15 air 0 replace calcite -1
+fill ~15 ~15 ~15 ~-15 ~-15 ~-15 air 0 replace sandstone -1
+fill ~15 ~15 ~15 ~-15 ~-15 ~-15 air 0 replace red_sandstone -1
+fill ~15 ~15 ~15 ~-15 ~-15 ~-15 air 0 replace hardened_clay -1
+fill ~15 ~15 ~15 ~-15 ~-15 ~-15 air 0 replace deepslate -1
