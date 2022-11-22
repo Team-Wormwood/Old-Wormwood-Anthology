@@ -132,6 +132,28 @@
 					"value": 6
 				}
 			},
+			//
+			"wormwood:client_flag_type_51_carbine_firing": {
+				"minecraft:mark_variant": {
+					"value": 6
+				}
+			},
+			"wormwood:client_flag_type_51_carbine_empty": {
+				"minecraft:variant": {
+					"value": 6
+				}
+			},
+			"wormwood:client_flag_type_51_carbine_full": {
+				"minecraft:variant": {
+					"value": 7
+				}
+			},
+			//
+			"wormwood:client_flag_polar_star_firing": {
+				"minecraft:mark_variant": {
+					"value": 7
+				}
+			},
 			// ------------------------ // 
 			//   	  World Beyond         //
 			// ------------------------ // 
@@ -469,6 +491,9 @@
 					]
 				}
 			},
+			//
+			//
+			//
 			"modified_player:set_client_flag.laser_pistol_empty": {
 				"add": {
 					"component_groups": [
@@ -667,6 +692,84 @@
 				"remove": {
 					"component_groups": [
 						"wormwood:client_flag_colt_firing"
+					]
+				}
+			},
+			//
+			//
+			//
+			"modified_player:set_client_flag.type_51_carbine_empty": {
+				"add": {
+					"component_groups": [
+						"wormwood:client_flag_type_51_carbine_empty"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"wormwood:client_flag_type_51_carbine_full"
+					]
+				}
+			},
+			"modified_player:set_client_flag.type_51_carbine_full": {
+				"add": {
+					"component_groups": [
+						"wormwood:client_flag_type_51_carbine_full"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"wormwood:client_flag_type_51_carbine_empty"
+					]
+				}
+			},
+			"modified_player:add_client_flag.type_51_carbine": {
+				"add": {
+					"component_groups": [
+						"wormwood:client_flag_type_51_carbine_firing"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"wormwood:client_flag_default"
+					]
+				}
+			},
+			"modified_player:remove_client_flag.type_51_carbine": {
+				"add": {
+					"component_groups": [
+						"wormwood:client_flag_default"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"wormwood:client_flag_type_51_carbine_firing"
+					]
+				}
+			},
+			//
+			//
+			//
+			"modified_player:add_client_flag.polar_star": {
+				"add": {
+					"component_groups": [
+						"wormwood:client_flag_polar_star_firing"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"wormwood:client_flag_default"
+					]
+				}
+			},
+			"modified_player:remove_client_flag.polar_star": {
+				"add": {
+					"component_groups": [
+						"wormwood:client_flag_default"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"wormwood:client_flag_polar_star_firing"
 					]
 				}
 			},

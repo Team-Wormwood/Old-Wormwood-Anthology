@@ -176,6 +176,12 @@
 							"attachables.colt.setup": "variable.is_equipped_colt"
 						},
 						{
+							"attachables.type_51_carbine.setup": "variable.is_equipped_type_51_carbine"
+						},
+						{
+							"attachables.polar_star.setup": "variable.is_equipped_polar_star"
+						},
+						{
 							"attachables.spear.setup": "variable.is_equipped_any_spear"
 						}
 					]

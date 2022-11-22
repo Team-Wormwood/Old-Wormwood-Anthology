@@ -21,6 +21,12 @@
 						},
 						{
 							"colt.firing": "query.mark_variant == 5"
+						},
+						{
+							"type_51_carbine.firing": "query.mark_variant == 6"
+						},
+						{
+							"polar_star.firing": "query.mark_variant == 7"
 						}
 					]
 				},
@@ -67,6 +73,26 @@
 				"colt.firing": {
 					"on_entry": [
 						"@s modified_player:remove_client_flag.colt"
+					],
+					"transitions": [
+						{
+							"default": "1"
+						}
+					]
+				},
+				"type_51_carbine.firing": {
+					"on_entry": [
+						"@s modified_player:remove_client_flag.type_51_carbine"
+					],
+					"transitions": [
+						{
+							"default": "1"
+						}
+					]
+				},
+				"polar_star.firing": {
+					"on_entry": [
+						"@s modified_player:remove_client_flag.polar_star"
 					],
 					"transitions": [
 						{
