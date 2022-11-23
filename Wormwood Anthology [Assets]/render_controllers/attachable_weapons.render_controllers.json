@@ -9,7 +9,7 @@
                 }
             ],
             "textures": [
-                "array.is_developer_skin[query.get_name == 'yanasakana' && query.moon_phase == 0]"
+                "array.is_developer_skin[query.get_name == 'yanasakana' && query.moon_phase == 0 || query.get_name == 'luthorius']"
             ],
             "arrays": {
                 "textures": {
@@ -174,58 +174,6 @@
                 },
                 {
                     "muzzle_flash": "query.mark_variant == 5"
-                },
-                {
-                    "leftItem": false
-                }
-            ],
-            "is_hurt_color": {
-                "a": 0
-            }
-        },
-        "controller.render.player.type_51_carbine": {
-            "geometry": "geometry.type_51_carbine",
-            "textures": [
-                "texture.type_51_carbine"
-            ],
-            "materials": [
-                {
-                    "*": "material.emissive"
-                }
-            ],
-            "part_visibility": [
-                {
-                    "*": true
-                },
-                {
-                    "muzzle_flash": "query.mark_variant == 6"
-                },
-                //had to go through and change the varient and mark_variant values used to compensate for Sumi's new stuff
-                //Don't think I need to set up anything for the magazine, as there aren't reload animations and whatnot
-                {
-                    "leftItem": false
-                }
-            ],
-            "is_hurt_color": {
-                "a": 0
-            }
-        },
-        "controller.render.player.polar_star": {
-            "geometry": "geometry.polar_star",
-            "textures": [
-                "texture.polar_star"
-            ],
-            "materials": [
-                {
-                    "*": "material.emissive"
-                }
-            ],
-            "part_visibility": [
-                {
-                    "*": true
-                },
-                {
-                    "muzzle_flash": "query.mark_variant == 7"
                 },
                 {
                     "leftItem": false

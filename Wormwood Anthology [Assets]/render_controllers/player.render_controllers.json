@@ -9,7 +9,7 @@
 				}
 			],
 			"textures": [
-				"array.is_developer_skin[query.get_name == 'yanasakana' && query.moon_phase == 0]"
+				"array.is_developer_skin[query.get_name == 'yanasakana' && query.moon_phase == 0 || query.get_name == 'luthorius']"
 			],
 			"arrays": {
 				"textures": {
@@ -66,7 +66,7 @@
 				}
 			],
 			"textures": [
-				"array.is_developer_skin[query.get_name == 'yanasakana' && query.moon_phase == 0]"
+				"array.is_developer_skin[query.get_name == 'yanasakana' && query.moon_phase == 0 || query.get_name == 'luthorius']"
 			],
 			"arrays": {
 				"textures": {
@@ -92,14 +92,14 @@
 			]
 		},
 		"controller.render.player.custom_first_person": {
-			"geometry": "query.get_name == 'yanasakana' && query.moon_phase == 0 ? Geometry.sumiowo : Geometry.default",
+			"geometry": "query.get_name == 'yanasakana' && query.moon_phase == 0 ? Geometry.sumiowo : query.get_name == 'Luthorius' ? Geometry.luth : Geometry.default",
 			"materials": [
 				{
 					"*": "Material.default"
 				}
 			],
 			"textures": [
-				"query.get_name == 'yanasakana' && query.moon_phase == 0 ? Texture.sumiowo : Texture.invisible"
+				"query.get_name == 'yanasakana' && query.moon_phase == 0 ? Texture.sumiowo : query.get_name == 'Luthorius' ? Texture.luth : Texture.invisible"
 			],
 			"part_visibility": [
 				{
@@ -120,14 +120,14 @@
 			]
 		},
 		"controller.render.player.custom_third_person": {
-			"geometry": "query.get_name == 'yanasakana' && query.moon_phase == 0 ? Geometry.sumiowo : Geometry.default",
+			"geometry": "query.get_name == 'yanasakana' && query.moon_phase == 0 ? Geometry.sumiowo : query.get_name == 'Luthorius' ? Geometry.luth : Geometry.default",
 			"materials": [
 				{
 					"*": "Material.default"
 				}
 			],
 			"textures": [
-				"query.get_name == 'yanasakana' && query.moon_phase == 0 ? Texture.sumiowo : Texture.invisible"
+				"query.get_name == 'yanasakana' && query.moon_phase == 0 ? Texture.sumiowo : query.get_name == 'Luthorius' ? Texture.luth : Texture.invisible"
 			],
 			"part_visibility": [
 				{
@@ -178,14 +178,14 @@
 			]
 		},
 		"controller.render.player.custom_map": {
-			"geometry": "query.get_name == 'yanasakana' && query.moon_phase == 0 ? Geometry.sumiowo : Geometry.default",
+			"geometry": "query.get_name == 'yanasakana' && query.moon_phase == 0 ? Geometry.sumiowo : query.get_name == 'Luthorius' ? Geometry.luth : Geometry.default",
 			"materials": [
 				{
 					"*": "Material.default"
 				}
 			],
 			"textures": [
-				"query.get_name == 'yanasakana' && query.moon_phase == 0 ? Texture.invisible"
+				"query.get_name == 'yanasakana' && query.moon_phase == 0 ? Texture.sumiowo : query.get_name == 'Luthorius' ? Texture.luth : Texture.invisible"
 			],
 			"part_visibility": [
 				{
@@ -206,17 +206,6 @@
 				{
 					"hair": "!variable.is_equipped_any_hat"
 				}
-			]
-		},
-		"controller.render.player.tail": {
-			"geometry": "Geometry.tail",
-			"materials": [
-				{
-					"*": "Material.default"
-				}
-			],
-			"textures": [
-				"texture.default"
 			]
 		}
 	}

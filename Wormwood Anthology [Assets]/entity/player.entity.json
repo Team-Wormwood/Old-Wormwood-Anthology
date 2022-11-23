@@ -19,16 +19,12 @@
 				"ozutsu": "geometry.ozutsu",
 				"lever_action_rifle": "geometry.lever_action_rifle",
 				"colt": "geometry.colt",
-				"type_51_carbine": "geometry.type_51_carbine",
-				"polar_star": "geometry.polar_star",
 				"spear_wooden": "geometry.wooden_spear",
 				"spear_stone": "geometry.stone_spear",
 				"spear_iron": "geometry.iron_spear",
 				"spear_tiger": "geometry.tiger_claw_spear",
 				// Developer Skin Models //
 				"sumiowo": "geometry.player.sumiowo",
-				// General Cosmetic Models //
-				"tail": "geometry.player.tail",
 				// Vanilla Models //
 				"default": "geometry.humanoid.custom",
 				"cape": "geometry.cape"
@@ -44,14 +40,13 @@
 				"ozutsu": "textures/attachables/ozutsu",
 				"lever_action_rifle": "textures/attachables/lever_action_rifle",
 				"colt": "textures/attachables/colt",
-				"type_51_carbine": "textures/attachables/type_51_carbine",
-				"polar_star": "textures/attachables/polar_star",
 				"spear_wooden": "textures/attachables/wooden_spear",
 				"spear_stone": "textures/attachables/stone_spear",
 				"spear_iron": "textures/attachables/iron_spear",
 				"spear_tiger": "textures/attachables/tiger_claw_spear",
 				// Developer Skin textures //
 				"sumiowo": "textures/entity/sumiowo",
+				"luth": "textures/entity/luth",
 				"invisible": "textures/invisible",
 				// Vanilla Textures //
 				"default": "textures/entity/steve",
@@ -69,8 +64,6 @@
 				"lever_action_rifle.fire": "weapon.lever_action_rifle.fire",
 				"lever_action_rifle.reload": "weapon.lever_action_rifle.reload",
 				"colt.fire": "weapon.colt.fire",
-				"type_51_carbine.fire": "weapon.type_51_carbine.fire",
-				"type_51_carbine.empty": "weapon.type_51_carbine.empty",
 				"spear.swing": "entity.player.attack.sweep"
 				//"ciosciaa.death": "entity.player.ciosciaa.death"
 			},
@@ -95,8 +88,6 @@
 					"variable.is_equipped_ozutsu = query.is_on_screen ? query.is_item_name_any('slot.weapon.mainhand', 'wormwood:ozutsu');",
 					"variable.is_equipped_lever_action_rifle = query.is_on_screen ? query.is_item_name_any('slot.weapon.mainhand', 'wormwood:lever_action_rifle');",
 					"variable.is_equipped_colt = query.is_on_screen ? query.is_item_name_any('slot.weapon.mainhand', 'wormwood:colt');",
-					"variable.is_equipped_type_51_carbine = query.is_on_screen ? query.is_item_name_any('slot.weapon.mainhand', 'wormwood:type_51_carbine');",
-					"variable.is_equipped_polar_star = query.is_on_screen ? query.is_item_name_any('slot.weapon.mainhand', 'wormwood:polar_star');",
 					"variable.is_equipped_wooden_spear = query.is_on_screen ? query.is_item_name_any('slot.weapon.mainhand', 'wormwood:wooden_spear');",
 					"variable.is_equipped_stone_spear = query.is_on_screen ? query.is_item_name_any('slot.weapon.mainhand', 'wormwood:stone_spear');",
 					"variable.is_equipped_iron_spear = query.is_on_screen ? query.is_item_name_any('slot.weapon.mainhand', 'wormwood:iron_spear');",
@@ -112,7 +103,7 @@
 					//Not a full list, of course.
 					//Actually no. It is, with the addition of Mr. Cook
 					//Captain C. Cook
-					"variable.is_custom_model = (query.get_name == 'yanasakana' && query.moon_phase == 0);",
+					"variable.is_custom_model = query.get_name == 'yanasakana' || query.get_name =='luthorius';",
 					"variable.is_fucking_tiny_bitch = query.get_name == 'ciosciaa';",
 					"variable.tail_rotation = math.min(math.max(variable.tail_rotation / math.max(1 + (query.is_moving * 0.1), 1 + (query.modified_move_speed * 50)) + (-query.yaw_speed / 3.5), -70), 70);",
 					"variable.is_equipped_any_hat = query.is_item_name_any('slot.armor.head', 'wormwood:shulker_shell', 'wormwood:primal_helmet', 'wormwood:pirate_hat', 'wormwood:trans_pirate_hat', 'wormwood:adventure_hat', 'wormwood:colourful_adventure_hat', 'minecraft:leather_helmet', 'minecraft:golden_helmet', 'minecraft:chainmail_helmet', 'minecraft:iron_helmet', 'minecraft:turtle_helmet', 'minecraft:diamond_helmet', 'minecraft:netherite_helmet');",
@@ -131,7 +122,6 @@
 				],
 				"animate": [
 					"advancements_offsets",
-					"tail",
 					{
 						"modified_root": "variable.is_equipped_any_attachable_weapon"
 					},
@@ -187,25 +177,12 @@
 				"attachables.colt.exit_aim_down_sights.third_person": "animation.wormwood.player.attachables.colt.exit_aim_down_sights.third_person",
 				"attachables.colt.shoot": "animation.wormwood.player.attachables.colt.shoot",
 				//
-				"attachables.type_51_carbine.setup": "controller.animation.wormwood.player.attachables.type_51_carbine.setup",
-				"attachables.type_51_carbine.controller": "controller.animation.wormwood.player.attachables.type_51_carbine.controller",
-				"attachables.type_51_carbine.wield.first_person": "animation.wormwood.player.attachables.type_51_carbine.wield.first_person",
-				"attachables.type_51_carbine.wield.third_person": "animation.wormwood.player.attachables.type_51_carbine.wield.third_person",
-				"attachables.type_51_carbine.shoot": "animation.wormwood.player.attachables.type_51_carbine.shoot",
-				//
-				"attachables.polar_star.setup": "controller.animation.wormwood.player.attachables.polar_star.setup",
-				"attachables.polar_star.controller": "controller.animation.wormwood.player.attachables.polar_star.controller",
-				"attachables.polar_star.wield.first_person": "animation.wormwood.player.attachables.polar_star.wield.first_person",
-				"attachables.polar_star.wield.third_person": "animation.wormwood.player.attachables.polar_star.wield.third_person",
-				"attachables.polar_star.shoot": "animation.wormwood.player.attachables.polar_star.shoot",
-				//
 				"attachables.spear.setup": "controller.animation.wormwood.player.attachables.spear.setup",
 				"attachables.spear.controller": "controller.animation.wormwood.player.attachables.spear.controller",
 				"attachables.spear.wield.first_person": "animation.wormwood.player.attachables.spear.wield.first_person",
 				"attachables.spear.wield.third_person": "animation.wormwood.player.attachables.spear.wield.third_person",
 				"attachables.spear.swing.first_person": "animation.wormwood.player.attachables.spear.swing.first_person",
 				"attachables.spear.swing.third_person": "animation.wormwood.player.attachables.spear.swing.third_person",
-				//
 				"tail": "animation.wormwood.player.tail",
 				//"ciosciaa": "controller.animation.wormwood.player.ciosciaa",
 				"tiny": "animation.wormwood.player.chibiosciaa",
@@ -311,9 +288,6 @@
 				},
 				{
 					"controller.render.player.custom_map": "variable.map_face_icon"
-				},
-				{
-					"controller.render.player.tail": "!variable.is_first_person && !variable.is_custom_model"
 				},
 				// Modified Render Controllers //
 				{
